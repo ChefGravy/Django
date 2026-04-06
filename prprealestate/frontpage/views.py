@@ -1,9 +1,9 @@
-
 #allows us to send email with our setting
 from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render
 from django.contrib import messages
+import re
 # from django.db import models
 from frontpage import models
 from frontpage.models import ContactForm
@@ -12,12 +12,12 @@ from django.views.generic import TemplateView
 
 
 # Create your views here.
-# class MembershipView(TemplateView):
-#     model = models.MembershipForm
-#     template_name='frontpage/index.html'
-
 def contact(request):
         if request.method == 'POST':
+            # Honeypot check — bots fill this hidden field, humans don't
+            if request.POST.get('website', ''):
+                return render(request, 'frontpage/contactform.html', {'form': ContactForm()})
+
             form = ContactForm(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
@@ -25,6 +25,13 @@ def contact(request):
                 category = form.cleaned_data['category']
                 subject = form.cleaned_data['subject']
                 body = form.cleaned_data['body']
+
+                # Gibberish check — reject if body has a long consonant run or fewer than 3 words
+                words = body.strip().split()
+                if len(words) < 3 or re.search(r'[bcdfghjklmnpqrstvwxyz]{8,}', body, re.IGNORECASE):
+                    form = ContactForm()
+                    return render(request, 'frontpage/contactform.html', {'form': form})
+
                 form.save()
                 #send_mail(subject, message, from_email, fail_silently=True)
                 subject_email = 'PRP Real Estate'
