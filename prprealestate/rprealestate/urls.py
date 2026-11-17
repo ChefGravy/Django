@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from frontpage import views as frontpage_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.HomePage.as_view(), name = 'index'),
+    path('', views.HomePage.as_view(), name='index'),
+    path('api/assistant/', frontpage_views.ai_assistant_api, name='api_assistant'),
     path('frontpage/', include('frontpage.urls')),
 ]

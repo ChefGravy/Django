@@ -4,169 +4,629 @@
 
 <html lang="en" dir="ltr">
   <head>
-
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}PRP Real Estate · Seattle Neighborhood Intelligence{% endblock %}</title>
 
-    <title>PRP Real Estate</title>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <!-- my own css -->
-    <link rel="stylesheet" href="{% static "rprealestate/css/master.css" %}" crossorigin="anonymous">
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Rubik:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 4.5 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 
     <style>
-
-    #container-one-footer {
-        font-family: 'Baloo Tamma 2', cursive;
-        width: 100%;
-        text-align: center;
-        height: 170px;
-        width: auto;
-        margin: auto;
-      }
-    #container-two-footer{
-        font-family: 'Baloo Tamma 2', cursive;
-        height: 170px;
-    }
-    #container-three-footer{
-        font-family: 'Baloo Tamma 2', cursive;
-        height: 170px;
-    }
-    #container-four-footer{
-        font-family: 'Baloo Tamma 2', cursive;
-        height: 170px;
-    }
-
-    #contact_form_nav{
-        font-family: 'Baloo Tamma 2', cursive;
-        font-size: 20px;
+      :root {
+        --prp-bg: #090d16;
+        --prp-bg-alt: #0f172a;
+        --prp-surface: #111827;
+        --prp-surface-elevated: #1e293b;
+        --prp-border: rgba(255, 255, 255, 0.08);
+        --prp-border-hover: rgba(56, 189, 248, 0.3);
+        --prp-text: #f8fafc;
+        --prp-text-muted: #94a3b8;
+        --prp-text-subtle: #64748b;
+        --prp-accent: #38bdf8;
+        --prp-accent-emerald: #10b981;
+        --prp-accent-gradient: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+        --prp-glow: rgba(56, 189, 248, 0.15);
       }
 
-    #main-nav-link{
-        font-family: 'Baloo Tamma 2', cursive;
-        font-size: 20px;
-        color: white;
+      html {
+        scroll-behavior: smooth;
       }
 
-    .navbar{
-        font-family: 'Baloo Tamma 2', cursive;
-        font-size: 20px;
-        opacity: .7;
+      body {
+        background-color: var(--prp-bg);
+        color: var(--prp-text);
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.65;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
-    #nav-link{
-        font-family: 'Baloo Tamma 2', cursive;
-        font-size: 20px;
-        color: white;
+      /* Modern Frosted Navbar */
+      .prp-navbar {
+        background: rgba(9, 13, 22, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--prp-border);
+        padding: 0.85rem 1.5rem;
+        transition: all 0.3s ease;
       }
 
-    #container-two{
-        text-align: left;
+      .prp-brand {
+        font-weight: 800;
+        font-size: 1.35rem;
+        letter-spacing: -0.5px;
+        color: #ffffff !important;
+        display: flex;
+        align-items: center;
+        text-decoration: none !important;
       }
 
-    #footer-div{
-      min-width: 800px;
-      width: 100%;
-      padding-top: 5px;
-    }
-    #main-footer{
-      position: fixed;
-      bottom: 0px;
-      width: 100%;
-      opacity: .9;
-    }
-    #copyright{
-      font-family: 'Baloo Tamma 2', cursive;
-      font-size: 1.1rem;
-      text-align: center;
-      padding-bottom: 0px;
-      margin: 0px 0px 0px 0px;
-    }
+      .prp-brand-badge {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        padding: 0.25rem 0.55rem;
+        border-radius: 9999px;
+        background: var(--prp-accent-gradient);
+        color: #ffffff;
+        margin-left: 0.65rem;
+      }
 
+      .prp-nav-link {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--prp-text-muted) !important;
+        padding: 0.5rem 0.9rem !important;
+        transition: color 0.2s ease;
+      }
+
+      .prp-nav-link:hover, .prp-nav-link.active {
+        color: #ffffff !important;
+      }
+
+      .prp-btn-ai {
+        background: var(--prp-accent-gradient);
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 0.88rem;
+        padding: 0.45rem 1.15rem;
+        border-radius: 9999px;
+        border: none;
+        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        text-decoration: none !important;
+      }
+
+      .prp-btn-ai:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+      }
+
+      /* Main Content Container */
+      .prp-main-content {
+        flex: 1 0 auto;
+      }
+
+      /* Modern Footer */
+      .prp-footer {
+        background-color: var(--prp-bg-alt);
+        border-top: 1px solid var(--prp-border);
+        color: var(--prp-text-muted);
+        padding: 4rem 0 2rem;
+        margin-top: 5rem;
+      }
+
+      .prp-footer h6 {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 1.25rem;
+      }
+
+      .prp-footer-links {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+      }
+
+      .prp-footer-links li {
+        margin-bottom: 0.65rem;
+      }
+
+      .prp-footer-links a {
+        color: var(--prp-text-muted);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .prp-footer-links a:hover {
+        color: var(--prp-accent);
+      }
+
+      .prp-footer-bottom {
+        border-top: 1px solid var(--prp-border);
+        padding-top: 2rem;
+        margin-top: 3rem;
+        font-size: 0.85rem;
+        color: var(--prp-text-subtle);
+      }
+
+      /* Floating AI Action Button */
+      #floating-ai-trigger {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1040;
+        background: var(--prp-accent-gradient);
+        color: #ffffff;
+        padding: 0.75rem 1.35rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      #floating-ai-trigger:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(2, 132, 199, 0.6);
+      }
+
+      /* Slide-out AI Assistant Drawer */
+      .prp-ai-drawer {
+        position: fixed;
+        top: 0;
+        right: -450px;
+        width: 440px;
+        max-width: 95vw;
+        height: 100vh;
+        background: #0f172a;
+        border-left: 1px solid var(--prp-border);
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+        z-index: 1050;
+        display: flex;
+        flex-direction: column;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .prp-ai-drawer.open {
+        right: 0;
+      }
+
+      .prp-ai-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 1045;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      .prp-ai-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .prp-ai-header {
+        padding: 1.25rem 1.5rem;
+        background: #111827;
+        border-bottom: 1px solid var(--prp-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .prp-ai-header h5 {
+        margin: 0;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .prp-ai-status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #10b981;
+        background: rgba(16, 185, 129, 0.12);
+        padding: 0.2rem 0.6rem;
+        border-radius: 9999px;
+      }
+
+      .prp-ai-status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #10b981;
+        box-shadow: 0 0 8px #10b981;
+      }
+
+      .prp-ai-close {
+        background: none;
+        border: none;
+        color: var(--prp-text-muted);
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+
+      .prp-ai-close:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .prp-ai-body {
+        flex: 1 1 auto;
+        padding: 1.25rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .prp-ai-bubble {
+        padding: 0.85rem 1.15rem;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        max-width: 88%;
+        word-wrap: break-word;
+      }
+
+      .prp-ai-bubble-assistant {
+        background: #1e293b;
+        color: #f1f5f9;
+        align-self: flex-start;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom-left-radius: 3px;
+      }
+
+      .prp-ai-bubble-user {
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        color: #ffffff;
+        align-self: flex-end;
+        border-bottom-right-radius: 3px;
+      }
+
+      .prp-ai-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.5rem;
+      }
+
+      .prp-ai-chip {
+        font-size: 0.78rem;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--prp-accent);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        padding: 0.35rem 0.75rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .prp-ai-chip:hover {
+        background: rgba(56, 189, 248, 0.15);
+        color: #ffffff;
+        border-color: var(--prp-accent);
+      }
+
+      .prp-ai-footer {
+        padding: 1rem 1.25rem;
+        background: #111827;
+        border-top: 1px solid var(--prp-border);
+      }
+
+      .prp-ai-input-group {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .prp-ai-input {
+        flex: 1 1 auto;
+        background: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        border-radius: 9999px;
+        padding: 0.65rem 1.15rem;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .prp-ai-input:focus {
+        border-color: var(--prp-accent);
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+      }
+
+      .prp-ai-submit {
+        background: var(--prp-accent-gradient);
+        border: none;
+        color: #ffffff;
+        border-radius: 9999px;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-weight: 700;
+        transition: transform 0.2s ease;
+      }
+
+      .prp-ai-submit:hover:not(:disabled) {
+        transform: scale(1.05);
+      }
+
+      .prp-ai-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     </style>
+    {% block extra_head %}{% endblock %}
   </head>
   <body>
+    <!-- Top Modern Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top prp-navbar">
+      <div class="container-fluid px-lg-4">
+        <a class="prp-brand" href="{% url 'index' %}">
+          PRP Real Estate
+          <span class="prp-brand-badge">Seattle Intelligence</span>
+        </a>
 
-       <!-- Optional JavaScript -->
-       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-       <!-- Google fonts -->
-       <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Rubik:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
-       <!-- Bootstrap nav bar starts here -->
-       <nav class='navbar navbar-expand-sm text-light bg-dark'>
-         <!-- BUTTON FOR WHEN COLLAPSED -->
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-         </button>
-         <a id='main-nav-link' class="navbar-brand text-light" href="{% url 'index' %}">PRP Real Estate</a>
-         <!-- DIV CLASS STARTS HERE -->
-         <div class="collapse navbar-collapse" id='navbarTogglerDemo03'>
-           <ul class='navbar-nav ml-auto'>
-             <li class='nav-item active'>
-               <a id='nav-link' class="nav-link" href="{% url 'index' %}">Home</a>
-             </li>
-             <li class='nav-item'>
-               <a id='nav-link' class="nav-link" href="{% url "frontpage:contactform" %}">Contact Form</a>
-             </li>
-           </ul>
-         </div>
-      </nav>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#prpNavbarContent" aria-controls="prpNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-       <!--CHECK FOR JAVASCRIPT-->
-      <noscript>
-    <center><span style='background-color:red; font-size: 30px; font-weight:bolder;'>Please enable JavaScript in your browser's settings, otherwise you will not get the full experience!</span></center>
-      </noscript>
+        <div class="collapse navbar-collapse" id="prpNavbarContent">
+          <ul class="navbar-nav ml-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link prp-nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link prp-nav-link" href="{% url 'index' %}#neighborhoods">Neighborhoods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link prp-nav-link" href="{% url 'index' %}#market-pulse">Market Pulse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link prp-nav-link" href="{% url 'index' %}#about-me">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link prp-nav-link" href="{% url 'frontpage:contactform' %}">Contact</a>
+            </li>
+            <li class="nav-item ml-lg-2 mt-2 mt-lg-0">
+              <button class="prp-btn-ai" onclick="openAiAssistant()">
+                <span>🤖</span> Ask AI Navigator
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        {% block content %}
+    <!-- Main View Content -->
+    <main class="prp-main-content">
+      {% block content %}{% endblock %}
+    </main>
 
-        {% endblock %}
+    <!-- Global Floating AI Trigger Button -->
+    <div id="floating-ai-trigger" onclick="openAiAssistant()" title="Open Seattle Real Estate AI Navigator">
+      <span>🤖</span>
+      <span>Ask Seattle AI</span>
+    </div>
 
-      <footer id='main-footer' class='text-light bg-dark'>
-        <div id='footer-div' class="row">
-          <!-- CONTACT INFORMATION -->
-          <div id='container-one-footer' class="col-sm-3">
-            <h5><b>
-                PRP Real Estate
-            </b></h5>
-            <p>
-            Seattle, WA | <a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Me</a>
+    <!-- Slide-Out AI Assistant Drawer & Overlay -->
+    <div class="prp-ai-overlay" id="ai-overlay" onclick="closeAiAssistant()"></div>
+    <div class="prp-ai-drawer" id="ai-drawer">
+      <div class="prp-ai-header">
+        <div>
+          <h5><span>🤖</span> Seattle AI Navigator</h5>
+          <span class="prp-ai-status-pill">
+            <span class="prp-ai-status-dot"></span>
+            Local 7.6B Model Active
+          </span>
+        </div>
+        <button class="prp-ai-close" onclick="closeAiAssistant()" aria-label="Close Assistant">&times;</button>
+      </div>
+
+      <div class="prp-ai-body" id="ai-messages">
+        <div class="prp-ai-bubble prp-ai-bubble-assistant">
+          <strong>Hello!</strong> I am the PRP Real Estate AI Assistant, powered by our local 7.6B neural model. Ask me anything about Seattle neighborhoods, commute dynamics, local attractions, or King County real estate fundamentals.
+          <div class="prp-ai-chips">
+            <span class="prp-ai-chip" onclick="askPreset('Compare Ballard and Fremont in terms of transit and vibe.')">Ballard vs Fremont</span>
+            <span class="prp-ai-chip" onclick="askPreset('What makes Queen Anne unique for real estate and lifestyle?')">Queen Anne Profile</span>
+            <span class="prp-ai-chip" onclick="askPreset('What are the key highlights of West Seattle and Alki Beach?')">West Seattle & Beach</span>
+            <span class="prp-ai-chip" onclick="askPreset('How do King County property assessments work?')">Property Taxes & Values</span>
           </div>
-          <!-- MY AFFILIATES -->
-          <div id='container-two-footer' class="col-sm-3" style='color: white;'>
-            <h5><b>My Affiliates</b></h5>
-                Amazon:
-                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=3491d2a5cfb451292c19565d44e1bc0e&camp=1789&creative=9325&node=4619352011" style='color: white;'>Home and Garden</a>
-                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=c5494d62e306e9c899143cf3eaa30fcf&camp=1789&creative=9325&node=289668" style='color: white;'>Kitchen and Dining</a>
-                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=acf041087256bd02c1db55ae790eb052&camp=1789&creative=9325&node=16310101" style='color: white;'>Grocery and Gourmet Food</a>
-                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=54014d6f280f1b325738043c41e3ba26&camp=1789&creative=9325&node=283155" style='color: white;'>Books and Textbooks</a>
-                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=d6cff836556dd602b5bccc26e9c9ba66&camp=1789&creative=9325&node=3760901" style='color: white;'>Health and Household</a>
+        </div>
+      </div>
+
+      <div class="prp-ai-footer">
+        <form id="ai-form" onsubmit="handleAiSubmit(event)">
+          <div class="prp-ai-input-group">
+            <input type="text" id="ai-input" class="prp-ai-input" placeholder="Ask about neighborhoods, transit, or housing..." autocomplete="off" maxlength="500">
+            <button type="submit" id="ai-send-btn" class="prp-ai-submit" title="Send Question">➔</button>
           </div>
-          <!-- CONTACT FORM -->
-          <div id='container-three-footer' class="col-sm-3">
-            <h5>
-                <b>Contact</b>
-            </h5>
-            <a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Form</a>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modern Responsive Footer -->
+    <footer class="prp-footer">
+      <div class="container">
+        <div class="row">
+          <!-- Col 1: About Platform -->
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <h6 style="color: var(--prp-accent); font-weight: 800;">PRP Real Estate</h6>
+            <p style="font-size: 0.92rem; line-height: 1.6; color: var(--prp-text-muted);">
+              A modern real estate technology and neighborhood intelligence platform showcasing Seattle regional dynamics, King County market metrics, and local machine learning models.
+            </p>
+            <div style="font-size: 0.85rem; color: var(--prp-text-subtle);">
+              <span>📍 Seattle, WA · King County</span>
+            </div>
           </div>
-          <!-- QUICK LINKS -->
-          <div id='container-four-footer' class="col-sm-3">
-            <h5><b>Quick Links</b></h5>
-            <p><a href="{% url "frontpage:data" %}" style='color: white;'>Market Reports</a>
-            <br><a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Form</a>
-            <br><a href="https://www.northpacificproperties.com/" style='color: white;'>North Pacific Properties</a>
-            <br><a href="https://www.nwmls.com/" style='color: white;'>NWMLS</a>
+
+          <!-- Col 2: Seattle Neighborhoods -->
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h6>Featured Neighborhoods</h6>
+            <ul class="prp-footer-links">
+              <li><a href="{% url 'index' %}#ballard">Ballard (98107)</a></li>
+              <li><a href="{% url 'index' %}#fremont">Fremont (98103)</a></li>
+              <li><a href="{% url 'index' %}#queen-anne">Queen Anne (98119)</a></li>
+              <li><a href="{% url 'index' %}#greenwood">Greenwood & Phinney (98103)</a></li>
+              <li><a href="{% url 'index' %}#capitol-hill">Capitol Hill (98122)</a></li>
+              <li><a href="{% url 'index' %}#west-seattle">West Seattle (98116)</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Intelligence & Tools -->
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h6>Navigation & Tools</h6>
+            <ul class="prp-footer-links">
+              <li><a href="{% url 'index' %}#market-pulse">Market Pulse</a></li>
+              <li><a href="javascript:void(0)" onclick="openAiAssistant()">AI Assistant</a></li>
+              <li><a href="{% url 'index' %}#about-me">About Ruslan</a></li>
+              <li><a href="{% url 'frontpage:contactform' %}">Contact Form</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Platform & Author -->
+          <div class="col-lg-3 col-md-6">
+            <h6>Author & Platform</h6>
+            <ul class="prp-footer-links">
+              <li><a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener">Ruslan Polyak Portfolio ↗</a></li>
+              <li><a href="https://github.com/ChefGravy/Django" target="_blank" rel="noopener">GitHub: ChefGravy/Django ↗</a></li>
+              <li style="font-size: 0.85rem; color: var(--prp-text-subtle); margin-top: 0.5rem;">
+                Architecture: Django 4.2 LTS · Python 3.12 · Gunicorn · Whitenoise · Local 7.6B AI
+              </li>
+            </ul>
           </div>
         </div>
 
-        <p class='copyright' id='copyright'><span class="glyphicon">©</span> Ruslan Polyak <b>@</b> PRP Real Estate </p>
-      </footer>
+        <!-- Bottom Copyright -->
+        <div class="prp-footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <div>
+            © 2026 PRP Real Estate. Developed by <strong>Ruslan Polyak</strong>. All rights reserved.
+          </div>
+          <div class="mt-2 mt-md-0">
+            <span class="text-muted">Educational, Analytical & Technical Showcase</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts: jQuery, Popper, Bootstrap 4.5 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Global AI Assistant Script -->
+    <script>
+      function openAiAssistant(initialQuery) {
+        document.getElementById('ai-drawer').classList.add('open');
+        document.getElementById('ai-overlay').classList.add('active');
+        const input = document.getElementById('ai-input');
+        if (initialQuery) {
+          input.value = initialQuery;
+        }
+        input.focus();
+      }
+
+      function closeAiAssistant() {
+        document.getElementById('ai-drawer').classList.remove('open');
+        document.getElementById('ai-overlay').classList.remove('active');
+      }
+
+      function askPreset(promptText) {
+        const input = document.getElementById('ai-input');
+        input.value = promptText;
+        document.getElementById('ai-form').dispatchEvent(new Event('submit'));
+      }
+
+      async function handleAiSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById('ai-input');
+        const sendBtn = document.getElementById('ai-send-btn');
+        const msgContainer = document.getElementById('ai-messages');
+        const userMsg = input.value.trim();
+
+        if (!userMsg) return;
+
+        // Append user message bubble
+        const userBubble = document.createElement('div');
+        userBubble.className = 'prp-ai-bubble prp-ai-bubble-user';
+        userBubble.textContent = userMsg;
+        msgContainer.appendChild(userBubble);
+
+        input.value = '';
+        input.disabled = true;
+        sendBtn.disabled = true;
+
+        // Append thinking placeholder bubble
+        const thinkingBubble = document.createElement('div');
+        thinkingBubble.className = 'prp-ai-bubble prp-ai-bubble-assistant';
+        thinkingBubble.innerHTML = '<em>Thinking with local 7.6B neural model...</em>';
+        msgContainer.appendChild(thinkingBubble);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        try {
+          const res = await fetch('/api/assistant/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: userMsg })
+          });
+
+          const data = await res.json();
+          if (res.ok && data.reply) {
+            thinkingBubble.innerHTML = data.reply.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+          } else {
+            thinkingBubble.innerHTML = `<span style="color: #f87171;">${data.error || data.reply || 'An error occurred while generating a response.'}</span>`;
+          }
+        } catch (err) {
+          thinkingBubble.innerHTML = `<span style="color: #f87171;">Connection error: Unable to reach AI service. Please ensure connectivity.</span>`;
+        } finally {
+          input.disabled = false;
+          sendBtn.disabled = false;
+          input.focus();
+          msgContainer.scrollTop = msgContainer.scrollHeight;
+        }
+      }
+    </script>
+    {% block extra_scripts %}{% endblock %}
   </body>
 </html>

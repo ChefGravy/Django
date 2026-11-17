@@ -24,8 +24,9 @@ from frontpage.views import AboutView
 
 
 urlpatterns = [
-    path('contactform/', views.contact, name = 'contactform'),
+    path('contactform/', views.contact, name='contactform'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('blog/', views.BlogView.as_view(), name='blog'),
-    path('data/', views.DataView.as_view(), name ='data'),
+    path('data/', views.DataView.as_view(), name='data'),
+    path('api/assistant/', views.ai_assistant_api, name='ai_assistant_api'),
 ]
