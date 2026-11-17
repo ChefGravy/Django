@@ -1,79 +1,124 @@
 {% extends "frontpage/base.html" %}
 {% load static %}
 
-{% block title %}About · PRP Real Estate{% endblock %}
+{% block title %}About Ruslan Polyak · Provenance & Philosophy · PRP Real Estate{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row mb-5">
-    <div class="col-lg-8 mx-auto text-center">
-      <span class="prp-hero-pill">ABOUT THE FOUNDER</span>
-      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
-        Rooted in the Pacific Northwest
-      </h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 620px; margin: 0 auto;">
-        Raised in Seattle since the early 1990s, exploring the history, architecture, and evolution of our communities for more than 30 years.
-      </p>
-    </div>
+
+<!-- Header Hero -->
+<section class="py-20 bg-stone-100/70 border-b border-stone-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-xs uppercase tracking-[0.25em] font-semibold text-terracotta">
+      Provenance & Heritage
+    </span>
+    <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-stone-950 mt-3 mb-6">
+      Rooted in the Pacific Northwest
+    </h1>
+    <p class="text-stone-600 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto">
+      Three decades of continuous Seattle residency, institutional financial discipline, and an enduring reverence for the neighborhoods of the Puget Sound.
+    </p>
   </div>
+</section>
 
-  <div class="row">
-    <!-- Story Column -->
-    <div class="col-lg-8 mb-4 mb-lg-0">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 24px; padding: 3rem; height: 100%; box-shadow: var(--prp-shadow-lg);">
-        <h3 style="color: var(--prp-text); font-weight: 800; margin-bottom: 1.5rem;">The Story Behind PRP Real Estate</h3>
-        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.35rem;">
-          Growing up in Seattle since the early 1990s gave me a front-row seat to the Puget Sound's incredible evolution. I attended middle school on Queen Anne Hill back when the Space Needle was still surrounded by gravel parking lots and Ballard was still predominantly known for commercial fishing vessels and maritime boatyards.
-        </p>
-        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.35rem;">
-          Over the past three decades, I watched Seattle blossom into one of the world's most dynamic tech capitals. Yet despite all the new glass towers and corporate campuses, each neighborhood maintains its soul: the historic brick of Ballard Ave, the bohemian artistry of Fremont, the sweeping panoramic sunsets from Kerry Park, the coastal ocean air at Alki Beach, and the community warmth along Greenwood Avenue.
-        </p>
-        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.25rem;">
-          I created <strong>PRP Real Estate</strong> as an homage to the city I love. It is designed to be an objective, thoughtful space where prospective buyers, long-time residents, and curious explorers can learn about Seattle neighborhoods without pushy sales pitches—supplemented with modern AI tools to answer questions in real time.
-        </p>
+<!-- Content Section -->
+<section class="py-20 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left Narrative Column (8 Cols) -->
+      <div class="lg:col-span-8 space-y-8">
+        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-card">
+          <h2 class="font-serif text-3xl font-bold text-stone-950 mb-6">
+            The Story Behind PRP Real Estate
+          </h2>
+          <div class="space-y-5 text-stone-700 text-base sm:text-lg leading-relaxed">
+            <p>
+              Growing up in Seattle since the early 1990s gave me a front-row seat to one of the most remarkable regional evolutions in American history. I attended middle school on Queen Anne Hill back when the Space Needle was still flanked by open gravel lots and Ballard was still predominantly known for commercial fishing vessels, maritime shipyards, and Scandinavian dry-dock workers.
+            </p>
+            <p>
+              Over the subsequent thirty years, I watched the Puget Sound blossom into a global epicenter of technology, commerce, and modern architectural innovation. Yet despite the influx of capital and corporate towers, each neighborhood fiercely maintained its soul: the historic brick masonry and craft culinary culture along Ballard Avenue, the eclectic bohemian artistry lining the Fremont canal, the breathtaking panoramic viewpoints from Kerry Park, the salty ocean promenade at Alki Beach, and the leafy Craftsman bungalows along Greenwood Avenue.
+            </p>
+            <blockquote class="my-8 p-6 rounded-2xl bg-stone-50 border-l-4 border-terracotta font-serif italic text-lg sm:text-xl text-stone-900">
+              "Real estate is not merely a transaction of physical square footage; it is the physical foundation where family memories are anchored and where substantial capital is either preserved or compromised."
+            </blockquote>
+            <p>
+              I founded <strong>PRP Real Estate</strong> to provide an alternative to conventional sales-driven brokerage practices. Drawing on my academic background—a <strong>B.A. in Economics from the University of Washington</strong> and an <strong>M.S. in Finance from Seattle University</strong>—I approach every residential acquisition and divestment through an institutional fiduciary lens: analyzing replacement costs, cash flow yields, municipal zoning shifts (HB 1110), and King County property tax mechanics.
+            </p>
+            <p>
+              Supplemented with our proprietary local neural AI models, clients receive an unvarnished, data-grounded perspective on Seattle real estate—free from sales pressure, backed by three decades of local trust.
+            </p>
+          </div>
 
-        <div class="d-flex flex-wrap" style="gap: 1rem;">
-          <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="prp-btn-primary">
-            <span>Explore My Personal Portfolio</span> <span>↗</span>
-          </a>
-          <a href="{% url 'frontpage:contactform' %}" class="prp-btn-secondary">
-            <span>Get in Touch</span> <span>➔</span>
-          </a>
+          <div class="pt-8 mt-8 border-t border-stone-100 flex flex-wrap items-center gap-4">
+            <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-obsidian text-stone-100 text-xs sm:text-sm font-semibold hover:bg-terracotta transition-colors shadow-sm">
+              Explore Founder Portfolio (ruslanpolyak.com) ↗
+            </a>
+            <a href="{% url 'frontpage:contactform' %}" class="px-6 py-3 rounded-full bg-stone-100 text-stone-800 text-xs sm:text-sm font-semibold hover:bg-stone-200 transition-colors">
+              Schedule Confidential Conversation ➔
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Quick Highlights Column -->
-    <div class="col-lg-4">
-      <div style="background: var(--prp-surface-warm); border: 1px solid var(--prp-border); border-radius: 24px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
-        <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.3rem; margin-bottom: 1.5rem;">
-          Seattle At a Glance
-        </h4>
-
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-          <div>
-            <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Favorite Neighborhoods</div>
-            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">Queen Anne · Ballard · Fremont · West Seattle · Capitol Hill</div>
+      <!-- Right Column: Sidebar Credentials (4 Cols) -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <!-- Founder Profile Card -->
+        <div class="bg-white p-8 rounded-3xl border border-stone-200/90 shadow-card">
+          <div class="w-16 h-16 rounded-2xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-2xl font-bold mb-6">
+            RP
           </div>
-
-          <div>
-            <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Local Perspective</div>
-            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">30+ Years Pacific Northwest Resident</div>
-          </div>
-
-          <div>
-            <div style="color: var(--prp-accent-sage); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Core Focus</div>
-            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">Regional Housing Data · Neighborhood History · Intelligent AI Guidance</div>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid var(--prp-border); padding-top: 1.75rem; margin-top: 2.5rem;">
-          <p style="color: var(--prp-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0;">
-            Want to learn more about my background in quantitative finance and full-stack software development? Visit <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" style="color: var(--prp-accent); font-weight: 700;">ruslanpolyak.com</a>.
+          <h3 class="font-serif text-2xl font-bold text-stone-950">Ruslan Polyak</h3>
+          <p class="text-xs uppercase tracking-wider font-semibold text-terracotta mt-1">
+            Founder & Principal Advisor
           </p>
+
+          <div class="space-y-4 pt-6 mt-6 border-t border-stone-100 text-sm">
+            <div>
+              <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Education</span>
+              <span class="font-semibold text-stone-900 block mt-0.5">University of Washington</span>
+              <span class="text-stone-600 text-xs block">Bachelor of Arts in Economics</span>
+              <span class="font-semibold text-stone-900 block mt-2">Seattle University</span>
+              <span class="text-stone-600 text-xs block">Master of Science in Finance (MSF)</span>
+            </div>
+
+            <div class="pt-4 border-t border-stone-100">
+              <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Seattle Heritage</span>
+              <span class="text-stone-700 text-xs leading-relaxed block mt-1">
+                Continuous Pacific Northwest resident since the early 1990s. Deep familiarity with Seattle public & private schools, micro-markets, and King County tax assessment cycles.
+              </span>
+            </div>
+
+            <div class="pt-4 border-t border-stone-100">
+              <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Systems & Innovation</span>
+              <span class="text-stone-700 text-xs leading-relaxed block mt-1">
+                Software Systems Architect · Fine-tuned 7.6B neural models · Quantitative market analysis.
+              </span>
+            </div>
+          </div>
         </div>
+
+        <!-- AI Assistant Direct Trigger Card -->
+        <div class="bg-obsidian text-stone-100 p-8 rounded-3xl border border-stone-800 shadow-luxury">
+          <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-terracotta block">
+            Proprietary AI Concierge
+          </span>
+          <h4 class="font-serif text-xl font-bold text-white mt-1 mb-3">
+            Inquire with Our Local Neural Engine
+          </h4>
+          <p class="text-stone-400 text-xs leading-relaxed mb-6">
+            Have questions regarding zoning laws, Sound Transit light rail corridors, or property tax mechanics? Our AI provides objective analysis in real time.
+          </p>
+          <button onclick="openAiAssistant('Summarize the founder history and philosophy behind PRP Real Estate.')" class="w-full py-3 rounded-xl bg-terracotta text-white text-xs font-semibold hover:bg-terracotta-hover transition-colors flex items-center justify-center gap-2">
+            <span>Ask AI About Founder Philosophy</span>
+            <span>✦</span>
+          </button>
+        </div>
+
       </div>
+
     </div>
   </div>
-</div>
+</section>
+
 {% endblock %}

@@ -1,170 +1,191 @@
 {% extends "frontpage/base.html" %}
-{% load my_extras %}
-{% load widget_tweaks %}
 {% load static %}
-{% load crispy_forms_tags %}
 
-{% block title %}Get in Touch · PRP Real Estate{% endblock %}
-
-{% block extra_head %}
-<style>
-  .prp-contact-card {
-    background: #FFFFFF;
-    border: 1px solid var(--prp-border);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: var(--prp-shadow-lg);
-  }
-
-  .prp-contact-info-card {
-    background: var(--prp-surface-warm);
-    border: 1px solid var(--prp-border);
-    border-radius: 24px;
-    padding: 3rem;
-    height: 100%;
-    box-shadow: var(--prp-shadow);
-  }
-
-  /* Form Labels & Warm Inputs */
-  .prp-contact-card label {
-    color: var(--prp-text);
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.45rem;
-  }
-
-  .prp-contact-card .form-control {
-    background-color: #FAF8F5;
-    border: 1px solid var(--prp-border);
-    color: var(--prp-text);
-    border-radius: 10px;
-    padding: 0.75rem 1.15rem;
-    font-size: 0.95rem;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  }
-
-  .prp-contact-card .form-control:focus {
-    background-color: #FFFFFF;
-    border-color: var(--prp-accent);
-    color: var(--prp-text);
-    box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
-  }
-
-  .prp-contact-card select.form-control {
-    color: var(--prp-text);
-  }
-
-  /* Honeypot hidden from view */
-  #id_website_field {
-    display: none;
-  }
-</style>
-{% endblock %}
+{% block title %}Initiate Confidential Consultation · PRP Real Estate{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row mb-5">
-    <div class="col-lg-8 mx-auto text-center">
-      <span class="prp-hero-pill">GET IN TOUCH</span>
-      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
-        Send a Message
-      </h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 620px; margin: 0 auto;">
-        Whether you have a question about a Seattle neighborhood, feedback on the platform, or just want to connect, feel free to reach out below.
-      </p>
-    </div>
-  </div>
 
-  <div class="row">
-    <!-- Friendly Info Column -->
-    <div class="col-lg-5 mb-4 mb-lg-0">
-      <div class="prp-contact-info-card d-flex flex-column justify-content-between">
-        <div>
-          <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.5rem; margin-bottom: 1.25rem;">
-            Let's Connect
+<!-- Header Hero -->
+<section class="py-20 bg-stone-100/70 border-b border-stone-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-xs uppercase tracking-[0.25em] font-semibold text-terracotta">
+      Private Client Inquiry
+    </span>
+    <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-stone-950 mt-3 mb-6">
+      Initiate a Confidential Consultation
+    </h1>
+    <p class="text-stone-600 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto">
+      Whether acquiring an architectural residence, evaluating an off-market opportunity, or seeking clarity on King County market dynamics, we invite you to connect.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Form & Fiduciary Advisory Section -->
+<section class="py-20 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left Column: Representation Discretion & Direct Details (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="bg-white p-8 sm:p-10 rounded-3xl border border-stone-200/90 shadow-card">
+          <span class="text-xs uppercase tracking-[0.2em] font-bold text-terracotta block">
+            Fiduciary Discretion
+          </span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mt-1 mb-4">
+            Private Client Stewardship
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            Significant property acquisitions and divestments require discretion, fiduciary loyalty, and quantitative valuation modeling. Every inquiry is handled directly by principal advisor <strong>Ruslan Polyak</strong>.
+          </p>
+
+          <div class="space-y-4 pt-6 border-t border-stone-100 text-sm">
+            <div class="flex items-start gap-3">
+              <span class="text-terracotta text-lg">📍</span>
+              <div>
+                <div class="text-[10px] uppercase font-bold text-stone-500">Advisory Headquarters</div>
+                <div class="font-semibold text-stone-900 mt-0.5">Seattle, Washington</div>
+                <div class="text-xs text-stone-600">Serving King County and the Puget Sound</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 pt-3 border-t border-stone-100">
+              <span class="text-terracotta text-lg">✉️</span>
+              <div>
+                <div class="text-[10px] uppercase font-bold text-stone-500">Direct Inquiries</div>
+                <a href="mailto:ruslan@uw.edu" class="font-semibold text-terracotta hover:underline mt-0.5 block">
+                  ruslan@uw.edu
+                </a>
+                <div class="text-xs text-stone-500">Direct personal response within 24 hours</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 pt-3 border-t border-stone-100">
+              <span class="text-terracotta text-lg">🛡️</span>
+              <div>
+                <div class="text-[10px] uppercase font-bold text-stone-500">Privacy Guarantee</div>
+                <div class="text-xs text-stone-600 mt-0.5 leading-relaxed">
+                  Your identity, transaction objectives, and personal financial parameters remain strictly confidential.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Concierge Quick Trigger Card -->
+        <div class="bg-obsidian text-stone-100 p-8 rounded-3xl border border-stone-800 shadow-luxury">
+          <span class="text-[10px] uppercase tracking-[0.2em] font-bold text-terracotta block">
+            Instant Guidance
+          </span>
+          <h3 class="font-serif text-xl font-bold text-white mt-1 mb-2">
+            Need Immediate Market Information?
           </h3>
-          <p style="color: var(--prp-text-muted); line-height: 1.75; font-size: 1rem; margin-bottom: 2rem;">
-            I personally review every inquiry and aim to respond promptly. If you're curious about a specific Seattle community, need help exploring neighborhood data, or have ideas for improving the site, I'd love to hear from you.
+          <p class="text-stone-400 text-xs leading-relaxed mb-6">
+            Our streaming AI concierge can instantly compare neighborhood amenities, estimate property tax levy rates, or analyze transit connectivity.
           </p>
-
-          <div style="display: flex; flex-direction: column; gap: 1.35rem;">
-            <div class="d-flex align-items-center">
-              <span style="font-size: 1.6rem; margin-right: 1.15rem;">📍</span>
-              <div>
-                <strong style="color: var(--prp-text); display: block; font-size: 0.95rem;">Location</strong>
-                <span style="color: var(--prp-text-muted); font-size: 0.9rem;">Seattle, WA · King County</span>
-              </div>
-            </div>
-
-            <div class="d-flex align-items-center">
-              <span style="font-size: 1.6rem; margin-right: 1.15rem;">📬</span>
-              <div>
-                <strong style="color: var(--prp-text); display: block; font-size: 0.95rem;">Quarterly Newsletter</strong>
-                <span style="color: var(--prp-text-muted); font-size: 0.9rem;">Select the "Membership" category for seasonal market notes.</span>
-              </div>
-            </div>
-
-            <div class="d-flex align-items-center">
-              <span style="font-size: 1.6rem; margin-right: 1.15rem;">🤖</span>
-              <div>
-                <strong style="color: var(--prp-text); display: block; font-size: 0.95rem;">Need Instant Answers?</strong>
-                <span style="color: var(--prp-text-muted); font-size: 0.9rem;">Try our <a href="javascript:void(0)" onclick="openAiAssistant()" style="color: var(--prp-accent); font-weight: 700;">Seattle AI Assistant</a>.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="border-top: 1px solid var(--prp-border); padding-top: 1.75rem; margin-top: 2rem;">
-          <p style="color: var(--prp-text-subtle); font-size: 0.88rem; line-height: 1.6; margin-bottom: 0;">
-            Prefer to explore other projects? Visit my personal engineering portfolio at <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" style="color: var(--prp-accent); font-weight: 700;">ruslanpolyak.com</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Clean Form Column -->
-    <div class="col-lg-7">
-      <div class="prp-contact-card">
-        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.5rem; margin-bottom: 1.75rem;">
-          How Can I Help?
-        </h3>
-        <form method="post">
-          {% csrf_token %}
-          <!-- Honeypot field (hidden from view) -->
-          <div id="id_website_field">
-            <input type="text" name="website" value="" autocomplete="off" tabindex="-1">
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              {{ form.name|as_crispy_field }}
-            </div>
-            <div class="col-md-6 mb-3">
-              {{ form.email|as_crispy_field }}
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              {{ form.subject|as_crispy_field }}
-            </div>
-            <div class="col-md-6 mb-3">
-              {{ form.category|as_crispy_field }}
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12 mb-3">
-              {{ form.body|as_crispy_field }}
-            </div>
-          </div>
-
-          <button type="submit" class="prp-btn-primary mt-2" style="width: 100%; justify-content: center; padding: 0.9rem; font-size: 1rem;">
-            <span>Send Message</span> <span>➔</span>
+          <button onclick="openAiAssistant()" class="w-full py-3 rounded-xl bg-stone-800 hover:bg-terracotta text-stone-100 text-xs font-semibold transition-colors flex items-center justify-center gap-2">
+            <span>Launch Real Estate AI Concierge</span>
+            <span class="text-terracotta">✦</span>
           </button>
-        </form>
+        </div>
+
       </div>
+
+      <!-- Right Column: The Consultation Form (7 Cols) -->
+      <div class="lg:col-span-7">
+        <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-luxury">
+          
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mb-2">
+            Schedule a Private Conversation
+          </h2>
+          <p class="text-stone-600 text-sm mb-8 leading-relaxed">
+            Please share your objectives, desired timeframe, and target Seattle neighborhoods or architectural criteria.
+          </p>
+
+          <form action="{% url 'frontpage:contactform' %}" method="post" class="space-y-6">
+            {% csrf_token %}
+            <!-- Hidden Honeypot Field -->
+            <div class="hidden">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-bold text-stone-700 mb-2">Full Name</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  required 
+                  placeholder="e.g. Eleanor Vance" 
+                  class="w-full px-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+                >
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-bold text-stone-700 mb-2">Email Address</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  required 
+                  placeholder="e.g. eleanor@domain.com" 
+                  class="w-full px-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+                >
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-bold text-stone-700 mb-2">Inquiry Category</label>
+                <select 
+                  name="category" 
+                  class="w-full px-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+                >
+                  <option value="question">Residential Acquisition (Buyer)</option>
+                  <option value="member">Property Divestment / Representation (Seller)</option>
+                  <option value="feeback">Market Advisory & Valuation</option>
+                  <option value="other">General Confidential Inquiry</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-bold text-stone-700 mb-2">Subject / Target Enclave</label>
+                <input 
+                  type="text" 
+                  name="subject" 
+                  required 
+                  placeholder="e.g. Queen Anne Hill Acquisition" 
+                  class="w-full px-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs uppercase tracking-wider font-bold text-stone-700 mb-2">Confidential Message</label>
+              <textarea 
+                name="body" 
+                rows="5" 
+                required 
+                placeholder="Please outline your property criteria, timeframe, or specific inquiries..." 
+                class="w-full px-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm text-stone-900 focus:outline-none focus:border-terracotta focus:ring-2 focus:ring-terracotta/20 transition-all"
+              ></textarea>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <span class="text-xs text-stone-500">
+                🔒 Strict confidentiality assured. Personal response within 24 hours.
+              </span>
+              <button 
+                type="submit" 
+                class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-obsidian text-stone-100 text-sm font-semibold hover:bg-terracotta transition-all duration-300 shadow-md"
+              >
+                Send Confidential Inquiry ➔
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
+</section>
+
 {% endblock %}

@@ -1,106 +1,158 @@
 {% extends "frontpage/base.html" %}
 {% load static %}
 
-{% block title %}Seattle Market Data & Regional Analytics · PRP Real Estate{% endblock %}
+{% block title %}Regional Analytics & Seattle Market Intelligence · PRP Real Estate{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row mb-5">
-    <div class="col-lg-8 mx-auto text-center">
-      <span class="prp-hero-pill">REGIONAL ANALYTICS</span>
-      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
-        Seattle Real Estate Data
-      </h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 650px; margin: 0 auto;">
-        Key indicators, transit corridors, and structural market mechanics shaping housing dynamics across King County.
+
+<!-- Header Hero -->
+<section class="py-20 bg-stone-100/70 border-b border-stone-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-xs uppercase tracking-[0.25em] font-semibold text-terracotta">
+      Regional Analytics
+    </span>
+    <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-stone-950 mt-3 mb-6">
+      Seattle Real Estate Intelligence
+    </h1>
+    <p class="text-stone-600 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto">
+      Key structural indicators, transit infrastructure arteries, and King County tax mechanics shaping residential valuation across the Puget Sound.
+    </p>
+  </div>
+</section>
+
+<!-- Main Analytics Content -->
+<section class="py-20 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- 4 High-End Stat Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      
+      <div class="bg-white p-8 rounded-3xl border border-stone-200/90 shadow-card">
+        <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500">Benchmark Single-Family</span>
+        <div class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">$865,000</div>
+        <p class="text-xs text-stone-500 mt-2">King County median single-family & townhome benchmark</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl border border-stone-200/90 shadow-card">
+        <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500">Market Velocity</span>
+        <div class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">19 Days</div>
+        <p class="text-xs text-stone-500 mt-2">Median days on market before contract execution</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl border border-stone-200/90 shadow-card">
+        <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500">Price Density</span>
+        <div class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">~$575</div>
+        <p class="text-xs text-stone-500 mt-2">Median price per finished interior square foot</p>
+      </div>
+
+      <div class="bg-white p-8 rounded-3xl border border-stone-200/90 shadow-card">
+        <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500">Inventory Absorption</span>
+        <div class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">1.9 Months</div>
+        <p class="text-xs text-stone-500 mt-2">Available supply horizon (balanced to seller advantage)</p>
+      </div>
+
+    </div>
+
+    <!-- Deep Analytical Reports (2 Columns) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+      
+      <!-- Report 1: Transit Infrastructure -->
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-card flex flex-col justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] font-bold text-terracotta">Infrastructure Corridors</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mt-1 mb-4">
+            Sound Transit 1 Line & 2 Line Light Rail Arteries
+          </h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Regional transit expansion remains the paramount long-term driver of Seattle residential liquidity and urban density.
+          </p>
+          <ul class="space-y-3 text-sm text-stone-700 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>1 Line North/South Spine:</strong> Direct high-speed connection linking Lynnwood, Northgate, the University of Washington, Capitol Hill, Downtown Seattle, and Sea-Tac Airport.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>2 Line East Link Expansion:</strong> The historic light rail crossing across the Lake Washington I-90 floating bridge connecting Downtown Seattle, Mercer Island, Downtown Bellevue, and Microsoft campus in Redmond.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>Value Premium:</strong> Properties within a 10-minute walk of rapid transit stations consistently demonstrate a 7–12% liquidity premium during market contractions.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-6 border-t border-stone-100 flex items-center justify-between">
+          <button onclick="openAiAssistant('Explain how Sound Transit 2 Line light rail affects property values and commute times between Seattle and Bellevue.')" class="text-xs font-semibold text-terracotta hover:text-terracotta-hover flex items-center gap-1.5 transition-colors">
+            <span>✦ Ask AI About Light Rail Impact</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Report 2: HB 1110 Zoning Reform -->
+      <div class="bg-white p-8 sm:p-12 rounded-3xl border border-stone-200/90 shadow-card flex flex-col justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-[0.2em] font-bold text-terracotta">Zoning & Urban Density</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mt-1 mb-4">
+            Washington Middle Housing Law (HB 1110)
+          </h3>
+          <p class="text-stone-600 text-sm leading-relaxed mb-4">
+            Enacted in 2023, Washington State House Bill 1110 represents the most consequential structural change to residential land use in decades.
+          </p>
+          <ul class="space-y-3 text-sm text-stone-700 mb-6">
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>Universal 4-Unit Rights:</strong> Tier 1 cities like Seattle must permit at least four residential units on all predominantly single-family lots.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>Transit Transit Proximity (6 Units):</strong> Lots within 1/4 mile of major transit hubs or light rail stations qualify for up to six units.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-terracotta font-bold">•</span>
+              <span><strong>Parking Mandate Elimination:</strong> Prohibits mandatory off-street parking mandates within 1/2 mile of transit, significantly reducing construction cost burdens.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-6 border-t border-stone-100 flex items-center justify-between">
+          <button onclick="openAiAssistant('How does Washington HB 1110 middle housing law affect property owners and residual land values in Seattle?')" class="text-xs font-semibold text-terracotta hover:text-terracotta-hover flex items-center gap-1.5 transition-colors">
+            <span>✦ Ask AI About HB 1110 Zoning</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- The Property Tax Whitepaper Panel -->
+    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-stone-200 shadow-luxury">
+      <div class="max-w-3xl">
+        <span class="text-xs uppercase tracking-[0.2em] font-bold text-terracotta">Fiscal Framework</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mt-1 mb-4">
+          King County Property Tax Mechanics: The Budget-Based Levy System
+        </h3>
+        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+          Unlike jurisdictions with fixed tax percentages, Washington State calculates property taxes via an aggregate budget-based levy system. Taxing districts (schools, cities, county, port) establish their total annual revenue needs, subject to a 1% statutory growth limit plus new construction. The levy rate is determined by dividing that budget by the total taxable assessed value of all district property.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-xl bg-stone-100 font-mono text-xs sm:text-sm text-stone-800 max-w-xl mb-6">
+        Levy Rate = (Total Approved District Budget) ÷ (Total Taxable Value in District)
+      </div>
+
+      <p class="text-stone-600 text-xs sm:text-sm leading-relaxed max-w-2xl mb-8">
+        Consequently, an increase in your individual property valuation does not automatically equate to a proportionate increase in your tax bill. Your taxes only increase if your home's appreciation exceeds the average appreciation of other properties within your taxing district.
       </p>
-    </div>
-  </div>
 
-  <!-- Metric Overview Cards -->
-  <div class="row mb-5">
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="prp-pulse-card">
-        <span class="prp-pulse-icon">🏡</span>
-        <div class="prp-pulse-val">$865K</div>
-        <div class="prp-pulse-sub">King County Benchmark</div>
-        <div class="prp-pulse-label">Median Single-Family & Condo</div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="prp-pulse-card">
-        <span class="prp-pulse-icon">⏱️</span>
-        <div class="prp-pulse-val">19 Days</div>
-        <div class="prp-pulse-sub">Active Market Liquidity</div>
-        <div class="prp-pulse-label">Average Days on Market</div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="prp-pulse-card">
-        <span class="prp-pulse-icon">📐</span>
-        <div class="prp-pulse-val">~$575</div>
-        <div class="prp-pulse-sub">Core Seattle Metro</div>
-        <div class="prp-pulse-label">Median Price / Sq. Ft.</div>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3 mb-4">
-      <div class="prp-pulse-card">
-        <span class="prp-pulse-icon">📦</span>
-        <div class="prp-pulse-val">1.9 Mo</div>
-        <div class="prp-pulse-sub">Balanced Supply</div>
-        <div class="prp-pulse-label">Months of Available Inventory</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Analytical Articles in Warm Cards -->
-  <div class="row">
-    <div class="col-lg-6 mb-4">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
-        <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Infrastructure Dynamics</div>
-        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.25rem;">
-          Sound Transit Link Corridors & Property Demand
-        </h3>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.25rem;">
-          Sound Transit's light rail network continues to be one of the strongest catalysts for residential demand across the Puget Sound. Stations along the 1 Line—connecting Sea-Tac Airport, Downtown Seattle, Capitol Hill, University of Washington, and Northgate—consistently demonstrate stronger price resilience and rental stability.
-        </p>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0;">
-          The upcoming 2 Line connection across Lake Washington to Mercer Island, Bellevue, and Redmond tech campuses will provide seamless transit between Seattle's creative neighborhoods and Eastside employment centers.
-        </p>
-      </div>
+      <button onclick="openAiAssistant('Explain the King County property tax appeal process and timeline.')" class="px-5 py-2.5 rounded-full bg-obsidian text-stone-100 text-xs font-semibold hover:bg-terracotta transition-colors flex items-center gap-2">
+        <span>Inquire on Tax Appeals & Assessments with AI</span>
+        <span>✦</span>
+      </button>
     </div>
 
-    <div class="col-lg-6 mb-4">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
-        <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Tax & Valuation Mechanics</div>
-        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.25rem;">
-          Understanding King County Property Taxes
-        </h3>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.25rem;">
-          Washington State operates under a budget-based property tax system rather than a fixed-rate system. The King County Assessor appraises fair market value annually as of January 1st, while individual local taxing districts determine their total budget requirements within statutory limits.
-        </p>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0;">
-          Because tax rates adjust inversely to total district assessed value, an increase in assessed property value does not automatically translate to a proportional tax hike. Your tax bill only increases significantly if your property appreciates faster than the overall district average.
-        </p>
-      </div>
-    </div>
   </div>
+</section>
 
-  <!-- Warm AI Assistant Banner -->
-  <div class="row mt-4">
-    <div class="col-12">
-      <div style="background: var(--prp-gradient-soft); border: 1px solid #FED7AA; border-radius: 24px; padding: 3rem; text-align: center; box-shadow: var(--prp-shadow);">
-        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.75rem; margin-bottom: 0.75rem;">
-          Explore Seattle Real Estate with Local AI
-        </h3>
-        <p style="color: var(--prp-text-muted); max-width: 650px; margin: 0 auto 1.75rem; font-size: 1.05rem; line-height: 1.65;">
-          Have specific questions about zoning changes, neighborhood price differences, or local school corridors? Ask our local 7.6B neural assistant for immediate, objective insights.
-        </p>
-        <button class="prp-btn-primary" onclick="openAiAssistant()">
-          <span>🤖</span> Open AI Concierge ➔
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}

@@ -1,70 +1,104 @@
 {% extends "frontpage/base.html" %}
 {% load static %}
 
-{% block title %}Seattle Real Estate Insights & Perspectives · PRP Real Estate{% endblock %}
+{% block title %}Advisory Journal · Seattle Real Estate Insights · PRP Real Estate{% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="row mb-5">
-    <div class="col-lg-8 mx-auto text-center">
-      <span class="prp-hero-pill">MARKET PERSPECTIVES</span>
-      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
-        Seattle Insights & Trends
-      </h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 650px; margin: 0 auto;">
-        Thoughtful perspectives on regional urban growth, transit-oriented development, and housing dynamics across the Puget Sound.
-      </p>
+
+<!-- Header Hero -->
+<section class="py-20 bg-stone-100/70 border-b border-stone-200">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-xs uppercase tracking-[0.25em] font-semibold text-terracotta">
+      Advisory Journal
+    </span>
+    <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-stone-950 mt-3 mb-6">
+      Perspectives on the Seattle Market
+    </h1>
+    <p class="text-stone-600 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto">
+      Rigorous commentary on monetary policy, transit infrastructure, zoning legislation, and neighborhood economics across the Puget Sound.
+    </p>
+  </div>
+</section>
+
+<!-- Journal Articles Grid -->
+<section class="py-20 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Article 1: Interest Rate Cycles -->
+      <article class="bg-white rounded-3xl border border-stone-200/90 shadow-card hover:shadow-luxury transition-all duration-300 p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-stone-500 mb-4">
+            <span class="px-2.5 py-1 rounded-full bg-stone-100 text-terracotta font-semibold text-[10px] uppercase tracking-wider">
+              Macroeconomics
+            </span>
+            <span>5 Min Read</span>
+          </div>
+          <h2 class="font-serif text-2xl font-bold text-stone-950 leading-snug mb-3">
+            Interest Rate Cycles & King County Housing Liquidity
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            How shifting Federal Reserve policy impacts Seattle purchasing power, the structural lock-in effect of legacy 3% mortgages, and single-family supply elasticity across the Puget Sound.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-stone-100">
+          <button onclick="openAiAssistant('Analyze how high mortgage interest rates affect Seattle home sellers with locked-in 3 percent rates and overall inventory.')" class="w-full py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs font-semibold text-stone-800 hover:border-terracotta hover:text-terracotta transition-colors flex items-center justify-center gap-2">
+            <span>Inquire on Interest Rates with AI</span>
+            <span>✦</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Article 2: Transit Connectivity -->
+      <article class="bg-white rounded-3xl border border-stone-200/90 shadow-card hover:shadow-luxury transition-all duration-300 p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-stone-500 mb-4">
+            <span class="px-2.5 py-1 rounded-full bg-stone-100 text-amber-700 font-semibold text-[10px] uppercase tracking-wider">
+              Transit & Rail
+            </span>
+            <span>6 Min Read</span>
+          </div>
+          <h2 class="font-serif text-2xl font-bold text-stone-950 leading-snug mb-3">
+            Sound Transit 2 Line: Bridging Seattle & The Eastside
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            The East Link light rail expansion across the I-90 floating bridge creates high-capacity connectivity between Downtown Seattle, Mercer Island, Bellevue, and Redmond, transforming cross-lake commute dynamics.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-stone-100">
+          <button onclick="openAiAssistant('Explain the timeline and property value impact of Sound Transit 2 Line East Link connecting Seattle to Bellevue and Redmond.')" class="w-full py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs font-semibold text-stone-800 hover:border-terracotta hover:text-terracotta transition-colors flex items-center justify-center gap-2">
+            <span>Inquire on Light Rail with AI</span>
+            <span>✦</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Article 3: Zoning & Land Use -->
+      <article class="bg-white rounded-3xl border border-stone-200/90 shadow-card hover:shadow-luxury transition-all duration-300 p-8 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-stone-500 mb-4">
+            <span class="px-2.5 py-1 rounded-full bg-stone-100 text-emerald-700 font-semibold text-[10px] uppercase tracking-wider">
+              Zoning Reform
+            </span>
+            <span>4 Min Read</span>
+          </div>
+          <h2 class="font-serif text-2xl font-bold text-stone-950 leading-snug mb-3">
+            Washington Middle Housing Legislation (HB 1110)
+          </h2>
+          <p class="text-stone-600 text-sm leading-relaxed mb-6">
+            Analyzing the statewide legalization of duplexes, triplexes, and fourplexes in residential zones, its impact on residual single-family land valuation, and missing-middle housing supply.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-stone-100">
+          <button onclick="openAiAssistant('What are the specific middle housing zoning regulations in Seattle under Washington HB 1110?')" class="w-full py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs font-semibold text-stone-800 hover:border-terracotta hover:text-terracotta transition-colors flex items-center justify-center gap-2">
+            <span>Inquire on Zoning with AI</span>
+            <span>✦</span>
+          </button>
+        </div>
+      </article>
+
     </div>
   </div>
+</section>
 
-  <div class="row">
-    <!-- Card 1 -->
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.25rem; height: 100%; display: flex; flex-direction: column; box-shadow: var(--prp-shadow);">
-        <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Macroeconomics & Rates</div>
-        <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.3rem; margin-bottom: 1rem; line-height: 1.35;">
-          Interest Rate Cycles & King County Housing Liquidity
-        </h4>
-        <p style="color: var(--prp-text-muted); font-size: 0.96rem; line-height: 1.65; flex: 1 1 auto;">
-          How shifting monetary policy impacts Pacific Northwest purchasing power, locked-in 3% mortgage holder behavior, and overall single-family housing inventory across the Seattle metro.
-        </p>
-        <button class="prp-card-btn mt-3" onclick="openAiAssistant('Explain how current interest rates affect Seattle home prices and inventory.')">
-          <span>💬</span> Ask AI About Interest Rates ➔
-        </button>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.25rem; height: 100%; display: flex; flex-direction: column; box-shadow: var(--prp-shadow);">
-        <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Transit Connectivity</div>
-        <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.3rem; margin-bottom: 1rem; line-height: 1.35;">
-          Sound Transit Link 2 Line: Bridging Seattle & The Eastside
-        </h4>
-        <p style="color: var(--prp-text-muted); font-size: 0.96rem; line-height: 1.65; flex: 1 1 auto;">
-          The East Link light rail expansion across the I-90 floating bridge will create a high-capacity rail artery between Downtown Seattle, Mercer Island, Downtown Bellevue, and the Redmond Microsoft campus.
-        </p>
-        <button class="prp-card-btn mt-3" onclick="openAiAssistant('How does the Sound Transit 2 Line light rail expansion affect property values in Seattle and Bellevue?')">
-          <span>💬</span> Ask AI About Transit Rail ➔
-        </button>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-lg-4 col-md-6 mb-4">
-      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.25rem; height: 100%; display: flex; flex-direction: column; box-shadow: var(--prp-shadow);">
-        <div style="color: var(--prp-accent-sage); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Zoning & Land Use</div>
-        <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.3rem; margin-bottom: 1rem; line-height: 1.35;">
-          Washington Middle Housing Legislation (HB 1110)
-        </h4>
-        <p style="color: var(--prp-text-muted); font-size: 0.96rem; line-height: 1.65; flex: 1 1 auto;">
-          An overview of Washington State's middle housing law authorizing duplexes, triplexes, and accessory dwelling units (ADUs) in traditionally single-family residential zones.
-        </p>
-        <button class="prp-card-btn mt-3" onclick="openAiAssistant('What is Washington HB 1110 and how does middle housing zoning impact Seattle neighborhoods?')">
-          <span>💬</span> Ask AI About HB 1110 Zoning ➔
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 {% endblock %}
