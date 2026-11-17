@@ -1,38 +1,40 @@
 {% extends "frontpage/base.html" %}
 {% load static %}
 
-{% block title %}About Ruslan Polyak · PRP Real Estate{% endblock %}
+{% block title %}About · PRP Real Estate{% endblock %}
 
 {% block content %}
 <div class="container py-5">
   <div class="row mb-5">
     <div class="col-lg-8 mx-auto text-center">
-      <span class="prp-hero-pill">FOUNDER & DEVELOPER</span>
-      <h1 style="font-weight: 800; color: #ffffff; font-size: 2.75rem; margin-top: 0.5rem;">Ruslan Polyak</h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6;">
-        Seattle native, software developer, and quantitative analyst exploring real estate dynamics, macroeconomic trends, and artificial intelligence.
+      <span class="prp-hero-pill">ABOUT THE FOUNDER</span>
+      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
+        Rooted in the Pacific Northwest
+      </h1>
+      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 620px; margin: 0 auto;">
+        Raised in Seattle since the early 1990s, exploring the history, architecture, and evolution of our communities for more than 30 years.
       </p>
     </div>
   </div>
 
   <div class="row">
-    <!-- Main Bio Column -->
+    <!-- Story Column -->
     <div class="col-lg-8 mb-4 mb-lg-0">
-      <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.5rem; height: 100%;">
-        <h3 style="color: #ffffff; font-weight: 700; margin-bottom: 1.5rem;">Background & Journey</h3>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.25rem;">
-          Raised in Seattle since the early 1990s, I have had a front-row seat to the Puget Sound's rapid transformation into one of the world's most dominant technological and economic corridors. From the growth of tech titans like Amazon and Microsoft to the evolution of historic neighborhoods like Queen Anne, Ballard, and Capitol Hill, the Pacific Northwest has always been my home.
+      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 24px; padding: 3rem; height: 100%; box-shadow: var(--prp-shadow-lg);">
+        <h3 style="color: var(--prp-text); font-weight: 800; margin-bottom: 1.5rem;">The Story Behind PRP Real Estate</h3>
+        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.35rem;">
+          Growing up in Seattle since the early 1990s gave me a front-row seat to the Puget Sound's incredible evolution. I attended middle school on Queen Anne Hill back when the Space Needle was still surrounded by gravel parking lots and Ballard was still predominantly known for commercial fishing vessels and maritime boatyards.
         </p>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.25rem;">
-          I graduated from the <strong>University of Washington with a B.A. in Economics</strong> and completed my <strong>Master of Science in Finance at Seattle University</strong>. My academic grounding in capital markets, monetary policy, and econometric modeling taught me to analyze housing not just as emotional real estate, but as a dynamic asset class governed by demographic inflows, transit infrastructure, and macroeconomic supply constraints.
+        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.35rem;">
+          Over the past three decades, I watched Seattle blossom into one of the world's most dynamic tech capitals. Yet despite all the new glass towers and corporate campuses, each neighborhood maintains its soul: the historic brick of Ballard Ave, the bohemian artistry of Fremont, the sweeping panoramic sunsets from Kerry Park, the coastal ocean air at Alki Beach, and the community warmth along Greenwood Avenue.
         </p>
-        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem;">
-          In addition to finance and real estate, I develop full-stack web platforms and autonomous machine learning workflows using Python, Django, Next.js, and neural language models. PRP Real Estate serves as a testbed and showcase for merging clean software design with objective neighborhood intelligence.
+        <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.25rem;">
+          I created <strong>PRP Real Estate</strong> as an homage to the city I love. It is designed to be an objective, thoughtful space where prospective buyers, long-time residents, and curious explorers can learn about Seattle neighborhoods without pushy sales pitches—supplemented with modern AI tools to answer questions in real time.
         </p>
 
-        <div class="d-flex flex-wrap gap-2" style="gap: 1rem;">
+        <div class="d-flex flex-wrap" style="gap: 1rem;">
           <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="prp-btn-primary">
-            <span>Explore My Portfolio</span> <span>↗</span>
+            <span>Explore My Personal Portfolio</span> <span>↗</span>
           </a>
           <a href="{% url 'frontpage:contactform' %}" class="prp-btn-secondary">
             <span>Get in Touch</span> <span>➔</span>
@@ -41,33 +43,35 @@
       </div>
     </div>
 
-    <!-- Stats & Education Card -->
+    <!-- Quick Highlights Column -->
     <div class="col-lg-4">
-      <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem;">
-        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 1.25rem;">Academic Credentials</h5>
-        <div class="mb-3">
-          <div style="color: var(--prp-accent); font-weight: 700; font-size: 0.95rem;">University of Washington</div>
-          <div style="color: #ffffff; font-weight: 600;">B.A. in Economics</div>
-        </div>
-        <div>
-          <div style="color: var(--prp-accent); font-weight: 700; font-size: 0.95rem;">Seattle University</div>
-          <div style="color: #ffffff; font-weight: 600;">M.S. in Finance (MSF)</div>
-        </div>
-      </div>
+      <div style="background: var(--prp-surface-warm); border: 1px solid var(--prp-border); border-radius: 24px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
+        <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.3rem; margin-bottom: 1.5rem;">
+          Seattle At a Glance
+        </h4>
 
-      <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2rem;">
-        <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 1.25rem;">Areas of Focus</h5>
-        <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-          <li class="mb-2" style="color: var(--prp-text-muted); font-size: 0.92rem;">
-            🔹 <strong>Seattle Real Estate:</strong> King County market trends, neighborhood guides, and zoning evolution.
-          </li>
-          <li class="mb-2" style="color: var(--prp-text-muted); font-size: 0.92rem;">
-            🔹 <strong>Quantitative Finance:</strong> SEC fundamental forensics, accounting accruals, and valuation modeling.
-          </li>
-          <li style="color: var(--prp-text-muted); font-size: 0.92rem;">
-            🔹 <strong>AI Systems:</strong> Self-hosted neural architectures (7.6B Qwen / FinLLM), automated data synthesis, and Linux DevOps.
-          </li>
-        </ul>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div>
+            <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Favorite Neighborhoods</div>
+            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">Queen Anne · Ballard · Fremont · West Seattle · Capitol Hill</div>
+          </div>
+
+          <div>
+            <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Local Perspective</div>
+            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">30+ Years Pacific Northwest Resident</div>
+          </div>
+
+          <div>
+            <div style="color: var(--prp-accent-sage); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">Core Focus</div>
+            <div style="color: var(--prp-text); font-weight: 700; font-size: 1rem; margin-top: 0.25rem;">Regional Housing Data · Neighborhood History · Intelligent AI Guidance</div>
+          </div>
+        </div>
+
+        <div style="border-top: 1px solid var(--prp-border); padding-top: 1.75rem; margin-top: 2.5rem;">
+          <p style="color: var(--prp-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0;">
+            Want to learn more about my background in quantitative finance and full-stack software development? Visit <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" style="color: var(--prp-accent); font-weight: 700;">ruslanpolyak.com</a>.
+          </p>
+        </div>
       </div>
     </div>
   </div>

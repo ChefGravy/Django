@@ -5,11 +5,11 @@
 
 {% block extra_head %}
 <style>
-  /* Hero Banner */
+  /* Hero Banner with Warm Golden Hour Ambient Overlay */
   .prp-hero {
     position: relative;
-    min-height: 540px;
-    background-image: linear-gradient(135deg, rgba(9, 13, 22, 0.88) 0%, rgba(15, 23, 42, 0.75) 50%, rgba(9, 13, 22, 0.92) 100%),
+    min-height: 520px;
+    background-image: linear-gradient(135deg, rgba(250, 248, 245, 0.90) 0%, rgba(245, 239, 231, 0.78) 50%, rgba(250, 248, 245, 0.94) 100%),
                       url("{% static 'rprealestate/images/seattle-smaller.jpg' %}");
     background-size: cover;
     background-position: center bottom;
@@ -21,23 +21,21 @@
   }
 
   .prp-hero-card {
-    background: rgba(15, 23, 42, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+    border: 1px solid var(--prp-border);
+    border-radius: 24px;
+    padding: 3.25rem 2.75rem;
+    box-shadow: var(--prp-shadow-lg);
   }
 
   .prp-hero-pill {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(56, 189, 248, 0.12);
-    color: var(--prp-accent);
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    padding: 0.35rem 0.85rem;
+    background: #FFEDD5;
+    color: #9A3412;
+    border: 1px solid #FED7AA;
+    padding: 0.35rem 0.95rem;
     border-radius: 9999px;
     font-size: 0.78rem;
     font-weight: 700;
@@ -49,28 +47,28 @@
   .prp-hero-title {
     font-size: 2.75rem;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.18;
     letter-spacing: -1px;
-    color: #ffffff;
+    color: var(--prp-text);
     margin-bottom: 1.25rem;
   }
 
   .prp-hero-subtitle {
-    font-size: 1.12rem;
+    font-size: 1.15rem;
     color: var(--prp-text-muted);
-    line-height: 1.6;
+    line-height: 1.65;
     margin-bottom: 2rem;
   }
 
   .prp-btn-primary {
-    background: var(--prp-accent-gradient);
+    background: var(--prp-gradient-warm);
     color: #ffffff !important;
     font-weight: 700;
     font-size: 0.95rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.8rem 1.85rem;
     border-radius: 9999px;
     border: none;
-    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 4px 14px rgba(194, 65, 12, 0.25);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -80,17 +78,18 @@
 
   .prp-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.55);
+    box-shadow: 0 8px 24px rgba(194, 65, 12, 0.35);
   }
 
   .prp-btn-secondary {
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff !important;
+    background: #FFFFFF;
+    color: var(--prp-text) !important;
     font-weight: 600;
     font-size: 0.95rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.8rem 1.85rem;
     border-radius: 9999px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid var(--prp-border);
+    box-shadow: var(--prp-shadow);
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -99,15 +98,16 @@
   }
 
   .prp-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--prp-accent);
+    color: var(--prp-accent) !important;
+    transform: translateY(-1px);
   }
 
-  /* Metric Badges Strip */
+  /* Stats Strip */
   .prp-stats-strip {
-    background: #0f172a;
+    background: var(--prp-bg-alt);
     border-bottom: 1px solid var(--prp-border);
-    padding: 1.75rem 0;
+    padding: 2rem 0;
   }
 
   .prp-stat-item {
@@ -116,34 +116,31 @@
   }
 
   .prp-stat-value {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--prp-text);
     letter-spacing: -0.5px;
+    line-height: 1.1;
   }
 
   .prp-stat-label {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.82rem;
+    font-weight: 700;
     color: var(--prp-text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-top: 0.25rem;
+    letter-spacing: 0.6px;
+    margin-top: 0.35rem;
   }
 
-  /* Neighborhood Cards */
+  /* Sections */
   .prp-section {
-    padding: 5rem 0;
-  }
-
-  .prp-section-header {
-    margin-bottom: 3rem;
+    padding: 5.5rem 0;
   }
 
   .prp-section-tag {
     color: var(--prp-accent);
     font-size: 0.82rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     display: block;
@@ -151,17 +148,18 @@
   }
 
   .prp-section-title {
-    font-size: 2.2rem;
+    font-size: 2.35rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: #ffffff;
-    margin-bottom: 0.75rem;
+    color: var(--prp-text);
+    margin-bottom: 0.85rem;
   }
 
   .prp-section-desc {
     color: var(--prp-text-muted);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     max-width: 680px;
+    line-height: 1.65;
   }
 
   /* Filter Tabs */
@@ -169,192 +167,196 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
   }
 
   .prp-filter-btn {
-    background: rgba(255, 255, 255, 0.05);
+    background: #FFFFFF;
     border: 1px solid var(--prp-border);
     color: var(--prp-text-muted);
-    padding: 0.45rem 1.15rem;
+    padding: 0.55rem 1.35rem;
     border-radius: 9999px;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(41, 37, 36, 0.03);
     transition: all 0.2s ease;
   }
 
   .prp-filter-btn:hover, .prp-filter-btn.active {
-    background: var(--prp-accent-gradient);
+    background: var(--prp-accent);
     color: #ffffff;
-    border-color: transparent;
+    border-color: var(--prp-accent);
+    box-shadow: 0 4px 14px rgba(194, 65, 12, 0.25);
   }
 
-  /* Neighborhood Card */
+  /* Neighborhood Cards */
   .prp-card {
-    background: #111827;
+    background: #FFFFFF;
     border: 1px solid var(--prp-border);
-    border-radius: 16px;
-    padding: 1.85rem;
+    border-radius: 20px;
+    padding: 2.25rem;
     height: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--prp-shadow);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .prp-card:hover {
     transform: translateY(-4px);
     border-color: var(--prp-border-hover);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--prp-shadow-lg);
   }
 
   .prp-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 1rem;
   }
 
   .prp-card-name {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--prp-text);
     margin: 0;
   }
 
   .prp-card-zip {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--prp-accent);
-    padding: 0.2rem 0.55rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #F4EFEB;
+    color: var(--prp-text-muted);
+    padding: 0.25rem 0.65rem;
     border-radius: 6px;
   }
 
   .prp-card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-bottom: 1rem;
+    gap: 0.4rem;
+    margin-bottom: 1.15rem;
   }
 
   .prp-card-tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    background: rgba(56, 189, 248, 0.08);
-    color: #7dd3fc;
-    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #FFEDD5;
+    color: #9A3412;
+    padding: 0.2rem 0.6rem;
     border-radius: 9999px;
+  }
+
+  .prp-card-tag-sage {
+    background: #DCFCE7;
+    color: #166534;
   }
 
   .prp-card-body {
     color: var(--prp-text-muted);
-    font-size: 0.92rem;
-    line-height: 1.6;
-    margin-bottom: 1.25rem;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin-bottom: 1.35rem;
     flex: 1 1 auto;
   }
 
   .prp-card-spots {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
-    padding: 0.85rem 1rem;
-    font-size: 0.85rem;
-    margin-bottom: 1.25rem;
+    background: var(--prp-surface-warm);
+    border: 1px solid var(--prp-border);
+    border-radius: 14px;
+    padding: 1rem 1.15rem;
+    font-size: 0.88rem;
+    color: var(--prp-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.55;
   }
 
   .prp-card-spots strong {
-    color: #ffffff;
+    color: var(--prp-text);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
   }
 
   .prp-card-btn {
-    background: rgba(255, 255, 255, 0.05);
+    background: #FAF8F5;
     color: var(--prp-accent);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    border: 1px solid var(--prp-border);
     border-radius: 9999px;
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 0.65rem 1.15rem;
+    font-size: 0.88rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
     text-decoration: none !important;
   }
 
   .prp-card-btn:hover {
-    background: var(--prp-accent-gradient);
+    background: var(--prp-accent);
     color: #ffffff;
-    border-color: transparent;
+    border-color: var(--prp-accent);
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.2);
   }
 
   /* Market Pulse Section */
   .prp-pulse-card {
-    background: #111827;
+    background: #FFFFFF;
     border: 1px solid var(--prp-border);
-    border-radius: 16px;
-    padding: 2rem;
+    border-radius: 20px;
+    padding: 2.25rem 1.75rem;
     text-align: center;
-    transition: transform 0.2s ease;
+    box-shadow: var(--prp-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
   }
 
   .prp-pulse-card:hover {
     transform: translateY(-3px);
+    box-shadow: var(--prp-shadow-lg);
   }
 
   .prp-pulse-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-    display: block;
+    font-size: 2.2rem;
+    margin-bottom: 0.85rem;
+    display: inline-block;
   }
 
   .prp-pulse-val {
-    font-size: 2.2rem;
+    font-size: 2.35rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--prp-text);
     letter-spacing: -0.5px;
     line-height: 1.1;
   }
 
   .prp-pulse-sub {
-    font-size: 0.82rem;
-    color: var(--prp-accent-emerald);
-    font-weight: 600;
-    margin-top: 0.35rem;
+    font-size: 0.84rem;
+    color: var(--prp-accent);
+    font-weight: 700;
+    margin-top: 0.4rem;
   }
 
   .prp-pulse-label {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: var(--prp-text-muted);
     margin-top: 0.5rem;
     font-weight: 500;
   }
 
-  /* About Me Executive Card */
+  /* About Section Card */
   .prp-about-card {
-    background: #111827;
+    background: #FFFFFF;
     border: 1px solid var(--prp-border);
-    border-radius: 20px;
-    padding: 3rem;
-  }
-
-  .prp-about-pill {
-    background: rgba(16, 185, 129, 0.12);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 1rem;
+    border-radius: 24px;
+    padding: 3.5rem;
+    box-shadow: var(--prp-shadow-lg);
   }
 </style>
 {% endblock %}
@@ -367,20 +369,20 @@
       <div class="col-lg-8 col-xl-7">
         <div class="prp-hero-card">
           <div class="prp-hero-pill">
-            <span>✨</span> 7.6B AI & SEATTLE NEIGHBORHOOD INTELLIGENCE
+            <span>✨</span> SEATTLE NEIGHBORHOOD INTELLIGENCE & AI
           </div>
           <h1 class="prp-hero-title">
-            Explore Seattle's Iconic Neighborhoods with Data & AI
+            Discover Seattle's Iconic Communities with Insight & Data
           </h1>
           <p class="prp-hero-subtitle">
-            Objective community profiles, transit dynamics, curated local highlights, and real-time AI guidance for buyers, residents, and real estate enthusiasts across King County.
+            Curated neighborhood profiles, local dining, parks, transit dynamics, and interactive guidance powered by our local 7.6B neural assistant for finding your place in the Pacific Northwest.
           </p>
-          <div class="d-flex flex-wrap gap-2" style="gap: 0.75rem;">
+          <div class="d-flex flex-wrap" style="gap: 0.85rem;">
             <a href="#neighborhoods" class="prp-btn-primary">
               <span>Explore 6 Neighborhoods</span> <span>↓</span>
             </a>
             <button class="prp-btn-secondary" onclick="openAiAssistant()">
-              <span>🤖</span> Launch AI Navigator
+              <span>🤖</span> Launch AI Concierge
             </button>
             <a href="#market-pulse" class="prp-btn-secondary">
               <span>📊</span> Market Pulse
@@ -401,16 +403,16 @@
         <div class="prp-stat-label">In-Depth Neighborhoods</div>
       </div>
       <div class="col-6 col-md-3 prp-stat-item">
-        <div class="prp-stat-value">7.6B</div>
-        <div class="prp-stat-label">Local Neural AI Engine</div>
+        <div class="prp-stat-value">30+ Yrs</div>
+        <div class="prp-stat-label">Seattle Local Perspective</div>
       </div>
       <div class="col-6 col-md-3 prp-stat-item">
         <div class="prp-stat-value">King Co.</div>
-        <div class="prp-stat-label">Market Pulse Tracking</div>
+        <div class="prp-stat-label">Market Pulse Metrics</div>
       </div>
       <div class="col-6 col-md-3 prp-stat-item">
-        <div class="prp-stat-value">100%</div>
-        <div class="prp-stat-label">Objective Analysis</div>
+        <div class="prp-stat-value">7.6B</div>
+        <div class="prp-stat-label">Local Neural AI Model</div>
       </div>
     </div>
   </div>
@@ -423,7 +425,7 @@
       <span class="prp-section-tag">Curated Regional Intelligence</span>
       <h2 class="prp-section-title">Seattle Neighborhood Explorer</h2>
       <p class="prp-section-desc">
-        Dive into authentic neighborhood profiles, transit corridors, and local landmarks curated from decades of living and exploring the Pacific Northwest.
+        Explore authentic neighborhood profiles, transit corridors, and local favorites curated from decades of living and roaming throughout Seattle.
       </p>
     </div>
 
@@ -447,17 +449,17 @@
           <div class="prp-card-tags">
             <span class="prp-card-tag">Maritime Heritage</span>
             <span class="prp-card-tag">Craft Breweries</span>
-            <span class="prp-card-tag">Ballard Locks</span>
+            <span class="prp-card-tag prp-card-tag-sage">Ballard Locks</span>
           </div>
           <div class="prp-card-body">
-            Rooted in Scandinavian maritime history along Salmon Bay and Shilshole, Ballard combines the historic brick architecture of Ballard Ave NW with a nationally renowned craft brewing district and easy waterfront access.
+            Rooted in Scandinavian maritime tradition along Salmon Bay, Ballard combines the historic brick architecture of Ballard Ave NW with the Pacific Northwest's premier craft brewery corridor, sandy beach walks at Golden Gardens, and a bustling Sunday Farmers Market.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
-            Ballard Locks & Salmon Ladders, Reuben's Brews, Gracia, Trailbend Taproom, Biscuit & Bean.
+            <strong>Local Highlights</strong>
+            Ballard Locks & Salmon Ladder, Reuben's Brews, Gracia, Trailbend Taproom, Stone Gardens, Biscuit & Bean.
           </div>
           <button class="prp-card-btn" onclick="openAiAssistant('Tell me about real estate, transit, and lifestyle in Ballard.')">
-            <span>💬</span> Ask AI About Ballard
+            <span>💬</span> Ask AI About Ballard ➔
           </button>
         </div>
       </div>
@@ -471,18 +473,18 @@
           </div>
           <div class="prp-card-tags">
             <span class="prp-card-tag">Center of Universe</span>
-            <span class="prp-card-tag">Tech Corridor</span>
-            <span class="prp-card-tag">Ship Canal</span>
+            <span class="prp-card-tag prp-card-tag-sage">Ship Canal</span>
+            <span class="prp-card-tag">Tech Corridors</span>
           </div>
           <div class="prp-card-body">
-            Seattle's artistic and bohemian anchor along the Lake Washington Ship Canal. Home to Google and Tableau campuses, the iconic Fremont Troll, dynamic public sculptures, and direct access to Gas Works Park.
+            Seattle's artistic and bohemian anchor along the Ship Canal. Features playful public art installations like the Fremont Troll, major tech offices lining the canal, and sweeping panoramic skyline vistas from the rolling green hills of Gas Works Park.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
-            Fremont Troll, Gas Works Park, Theo Chocolate, Fremont Brewing, Milstead & Co, Burke-Gilman Trail.
+            <strong>Local Highlights</strong>
+            Fremont Troll, Gas Works Park, Theo Chocolate Factory, Fremont Brewing, Milstead & Co, Burke-Gilman Trail.
           </div>
           <button class="prp-card-btn" onclick="openAiAssistant('What are the key real estate and lifestyle features of Fremont, Seattle?')">
-            <span>💬</span> Ask AI About Fremont
+            <span>💬</span> Ask AI About Fremont ➔
           </button>
         </div>
       </div>
@@ -495,19 +497,19 @@
             <span class="prp-card-zip">98119</span>
           </div>
           <div class="prp-card-tags">
-            <span class="prp-card-tag">Scenic Views</span>
+            <span class="prp-card-tag">Panoramic Views</span>
             <span class="prp-card-tag">Victorian Homes</span>
-            <span class="prp-card-tag">Seattle Center</span>
+            <span class="prp-card-tag prp-card-tag-sage">Seattle Center</span>
           </div>
           <div class="prp-card-body">
-            Perched atop a commanding hill overlooking Elliott Bay and Downtown. Upper Queen Anne offers tranquil streets lined with 19th-century architecture, while Lower Queen Anne anchors Seattle Center and Climate Pledge Arena.
+            Perched atop a commanding hill overlooking Elliott Bay and the Downtown skyline. Upper Queen Anne offers tranquil streets lined with historic Victorian and Craftsman homes, while Lower Queen Anne anchors Seattle Center and Climate Pledge Arena.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
-            Kerry Park vistas, Space Needle, Seattle Center, Toulouse Petit, Bounty Kitchen, Queen Anne Ave dining.
+            <strong>Local Highlights</strong>
+            Kerry Park vistas, Space Needle, Seattle Center, Toulouse Petit, Bounty Kitchen, Queen Anne Ave N cafes.
           </div>
-          <button class="prp-card-btn" onclick="openAiAssistant('Compare Upper and Lower Queen Anne in terms of housing and vibe.')">
-            <span>💬</span> Ask AI About Queen Anne
+          <button class="prp-card-btn" onclick="openAiAssistant('Compare Upper and Lower Queen Anne in terms of housing and neighborhood character.')">
+            <span>💬</span> Ask AI About Queen Anne ➔
           </button>
         </div>
       </div>
@@ -520,19 +522,19 @@
             <span class="prp-card-zip">98103</span>
           </div>
           <div class="prp-card-tags">
-            <span class="prp-card-tag">Walkable Core</span>
+            <span class="prp-card-tag">Community Corridors</span>
             <span class="prp-card-tag">Car Show & Art</span>
-            <span class="prp-card-tag">Near Green Lake</span>
+            <span class="prp-card-tag prp-card-tag-sage">Near Green Lake</span>
           </div>
           <div class="prp-card-body">
-            Centered along the Greenwood Avenue corridor, this welcoming community is celebrated for its annual Greenwood Car Show, Seafair Parade, independent bakeries, craft pubs, and immediate proximity to Green Lake Park.
+            Centered along the Greenwood Avenue corridor, this welcoming community is celebrated for its annual Greenwood Car Show, Seafair Parade, independent bakeries, craft pubs, and immediate walking access to the loop trails at Green Lake Park.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
-            Flintcreek Cattle Co, Chocolati Cafe, Green Lake Trail, Flying Bike Brewery, monthly art walks.
+            <strong>Local Highlights</strong>
+            Flintcreek Cattle Co, Chocolati Cafe, Green Lake Loop Trail, Flying Bike Cooperative Brewery, monthly art walks.
           </div>
-          <button class="prp-card-btn" onclick="openAiAssistant('What is it like living in Greenwood and Phinney Ridge Seattle?')">
-            <span>💬</span> Ask AI About Greenwood
+          <button class="prp-card-btn" onclick="openAiAssistant('What is it like living in Greenwood and Phinney Ridge, Seattle?')">
+            <span>💬</span> Ask AI About Greenwood ➔
           </button>
         </div>
       </div>
@@ -546,18 +548,18 @@
           </div>
           <div class="prp-card-tags">
             <span class="prp-card-tag">Light Rail Hub</span>
-            <span class="prp-card-tag">Nightlife & Coffee</span>
-            <span class="prp-card-tag">Volunteer Park</span>
+            <span class="prp-card-tag">Dining & Coffee</span>
+            <span class="prp-card-tag prp-card-tag-sage">Volunteer Park</span>
           </div>
           <div class="prp-card-body">
-            Seattle's culinary, nightlife, and cultural powerhouse. Blends high-density transit and Pike/Pine entertainment with the historic elegance of North Capitol Hill and the 48-acre Olmsted-designed Volunteer Park.
+            Seattle's culinary, nightlife, and cultural heartbeat. Blends high-density transit and Pike/Pine entertainment with the quiet, historic tree-lined streets of North Capitol Hill and the 48-acre Olmsted-designed Volunteer Park.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
+            <strong>Local Highlights</strong>
             Starbucks Reserve Roastery, Volunteer Park Conservatory, Dick's Drive-In, Blade & Timber, Little Neon Taco.
           </div>
           <button class="prp-card-btn" onclick="openAiAssistant('How does Capitol Hill compare to other Seattle neighborhoods for transit and walkability?')">
-            <span>💬</span> Ask AI About Capitol Hill
+            <span>💬</span> Ask AI About Capitol Hill ➔
           </button>
         </div>
       </div>
@@ -572,17 +574,17 @@
           <div class="prp-card-tags">
             <span class="prp-card-tag">Alki Beach</span>
             <span class="prp-card-tag">The Junction</span>
-            <span class="prp-card-tag">Olympic Views</span>
+            <span class="prp-card-tag prp-card-tag-sage">Olympic Vistas</span>
           </div>
           <div class="prp-card-body">
-            A coastal retreat minutes from the city core. Features miles of beach at Alki, panoramic Olympic Mountain vistas across Puget Sound, old-growth hiking at Lincoln Park, and the bustling Junction retail district.
+            A coastal haven minutes from the city core. Features miles of beach at Alki, panoramic Olympic Mountain vistas across Puget Sound, old-growth hiking at Lincoln Park, and the bustling Junction retail district.
           </div>
           <div class="prp-card-spots">
-            <strong>Curated Landmarks:</strong>
+            <strong>Local Highlights</strong>
             Alki Beach Promenade, Lincoln Park trails, Easy Street Records, Bakery Nouveau, Marination Ma Kai, Husky Deli.
           </div>
           <button class="prp-card-btn" onclick="openAiAssistant('What are the commute options and property dynamics in West Seattle?')">
-            <span>💬</span> Ask AI About West Seattle
+            <span>💬</span> Ask AI About West Seattle ➔
           </button>
         </div>
       </div>
@@ -597,7 +599,7 @@
       <span class="prp-section-tag">King County Market Analytics</span>
       <h2 class="prp-section-title">Regional Real Estate Market Pulse</h2>
       <p class="prp-section-desc mx-auto">
-        Key macroeconomic metrics and structural trends shaping property valuation, inventory liquidity, and transit-oriented development across the Seattle metro.
+        Key macroeconomic indicators and structural trends shaping property valuation, inventory liquidity, and transit-oriented development across the Seattle metro.
       </p>
     </div>
 
@@ -643,21 +645,23 @@
     <!-- Analytical Context Grid -->
     <div class="row mt-4">
       <div class="col-lg-6 mb-4 mb-lg-0">
-        <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 16px; padding: 2rem; height: 100%;">
-          <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 1rem;">
-            🚆 Transit Corridors & Sound Transit Expansion
-          </h5>
-          <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.65;">
-            Seattle's real estate dynamics are heavily driven by rapid transit links. The Sound Transit 1 Line and ongoing 2 Line link major employment clusters in South Lake Union, Bellevue, and Redmond with walkable neighborhoods like Capitol Hill and the University District, reinforcing long-term property demand around high-density transit stations.
+        <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.25rem; height: 100%; box-shadow: var(--prp-shadow);">
+          <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Transit & Connectivity</div>
+          <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem;">
+            🚆 Sound Transit Link Expansion Corridors
+          </h4>
+          <p style="color: var(--prp-text-muted); font-size: 0.96rem; line-height: 1.65; margin-bottom: 0;">
+            Seattle's real estate dynamics are heavily driven by rapid rail transit links. The Sound Transit 1 Line and upcoming 2 Line link major employment clusters in South Lake Union, Downtown, Bellevue, and Redmond with walkable neighborhoods like Capitol Hill and the University District, reinforcing long-term property demand around high-density transit stations.
           </p>
         </div>
       </div>
       <div class="col-lg-6">
-        <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 16px; padding: 2rem; height: 100%;">
-          <h5 style="color: #ffffff; font-weight: 700; margin-bottom: 1rem;">
-            📑 King County Property Assessment Framework
-          </h5>
-          <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.65;">
+        <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.25rem; height: 100%; box-shadow: var(--prp-shadow);">
+          <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Valuation Framework</div>
+          <h4 style="color: var(--prp-text); font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem;">
+            📑 King County Property Assessment Mechanics
+          </h4>
+          <p style="color: var(--prp-text-muted); font-size: 0.96rem; line-height: 1.65; margin-bottom: 0;">
             King County calculates real property taxes using budget-based levy rates rather than fixed percentages. Annual reassessments reflect market transactions as of January 1st, meaning tax changes depend on how an individual property's assessed value shifted relative to the aggregate county taxing district.
           </p>
         </div>
@@ -666,43 +670,29 @@
   </div>
 </section>
 
-<!-- 5. Executive Profile / About Section -->
+<!-- 5. Human Story / About Section (No Academic Credentials Box) -->
 <section id="about-me" class="prp-section">
   <div class="container">
     <div class="prp-about-card">
       <div class="row align-items-center">
-        <div class="col-lg-8">
-          <div class="prp-about-pill">
-            <span>👨‍💻</span> Founder & Software Engineer
-          </div>
-          <h2 style="font-size: 2.3rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">
-            Ruslan Polyak
+        <div class="col-lg-8 mx-auto text-center">
+          <span class="prp-hero-pill">ABOUT THE FOUNDER</span>
+          <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--prp-text); margin-bottom: 1.25rem;">
+            Rooted in the Pacific Northwest
           </h2>
-          <p style="color: var(--prp-text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Raised in Seattle since the early 1990s, I hold a <strong>B.A. in Economics from the University of Washington</strong> and a <strong>Master of Science in Finance from Seattle University</strong>.
+          <p style="color: var(--prp-text-muted); font-size: 1.1rem; line-height: 1.75; margin-bottom: 1.25rem;">
+            Raised in Seattle since the early 1990s, I've had a front-row seat to this city's transformation into the vibrant, tech-driven metropolis it is today. Having spent over 30 years exploring, living in, and studying Seattle's unique neighborhoods, I built <strong>PRP Real Estate</strong> as a personal project to celebrate the communities that make the Pacific Northwest feel like home.
           </p>
-          <p style="color: var(--prp-text-muted); font-size: 0.98rem; line-height: 1.65; margin-bottom: 2rem;">
-            My technical focus centers on full-stack web applications, quantitative financial algorithms, and autonomous neural model pipelines. I built PRP Real Estate to combine my passion for Seattle's vibrant neighborhoods with data-driven architecture and real-time artificial intelligence.
+          <p style="color: var(--prp-text-muted); font-size: 1.02rem; line-height: 1.7; margin-bottom: 2.25rem;">
+            Whether you are strolling down Ballard Avenue, watching salmon at the Locks, catching sunset over Puget Sound at Alki Beach, or admiring Kerry Park views from Queen Anne, Seattle has a neighborhood for every pace of life. This platform pairs that local affection with clean web engineering and real-time machine learning.
           </p>
-          <div class="d-flex flex-wrap" style="gap: 1rem;">
+          <div class="d-flex justify-content-center flex-wrap" style="gap: 1rem;">
             <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="prp-btn-primary">
-              <span>View Full Portfolio</span> <span>↗</span>
+              <span>Visit ruslanpolyak.com</span> <span>↗</span>
             </a>
             <a href="{% url 'frontpage:contactform' %}" class="prp-btn-secondary">
-              <span>📬</span> Send Message
+              <span>Send a Message</span> <span>➔</span>
             </a>
-          </div>
-        </div>
-        <div class="col-lg-4 mt-4 mt-lg-0 text-center">
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--prp-border); border-radius: 16px; padding: 2rem;">
-            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
-            <div style="font-weight: 700; color: #ffffff; font-size: 1.1rem;">Academic Credentials</div>
-            <div style="color: var(--prp-accent); font-size: 0.9rem; margin-top: 0.25rem;">UW Economics · Seattle U MSF</div>
-            <hr style="border-top: 1px solid var(--prp-border); margin: 1.25rem 0;">
-            <div style="font-size: 0.85rem; color: var(--prp-text-muted);">
-              <strong>Core Engineering Stack:</strong><br>
-              Python · Django · Next.js · Node.js · Linux Systemd · Ollama LLM Pipelines
-            </div>
           </div>
         </div>
       </div>
@@ -714,11 +704,9 @@
 {% block extra_scripts %}
 <script>
   function filterNeighborhoods(category, btn) {
-    // Update active button
     document.querySelectorAll('.prp-filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // Filter cards
     const items = document.querySelectorAll('.neighborhood-item');
     items.forEach(item => {
       if (category === 'all' || item.getAttribute('data-category') === category) {

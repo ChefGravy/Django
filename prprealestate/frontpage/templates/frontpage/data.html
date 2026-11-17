@@ -1,16 +1,18 @@
 {% extends "frontpage/base.html" %}
 {% load static %}
 
-{% block title %}Market Data & Analytics · PRP Real Estate{% endblock %}
+{% block title %}Seattle Market Data & Regional Analytics · PRP Real Estate{% endblock %}
 
 {% block content %}
 <div class="container py-5">
   <div class="row mb-5">
     <div class="col-lg-8 mx-auto text-center">
       <span class="prp-hero-pill">REGIONAL ANALYTICS</span>
-      <h1 style="font-weight: 800; color: #ffffff; font-size: 2.75rem; margin-top: 0.5rem;">Seattle Real Estate Data</h1>
-      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6;">
-        Quantitative indicators, property tax mechanics, and structural drivers across King County and the Pacific Northwest.
+      <h1 style="font-weight: 800; color: var(--prp-text); font-size: 2.75rem; margin-top: 0.5rem; letter-spacing: -0.5px;">
+        Seattle Real Estate Data
+      </h1>
+      <p style="color: var(--prp-text-muted); font-size: 1.15rem; line-height: 1.6; max-width: 650px; margin: 0 auto;">
+        Key indicators, transit corridors, and structural market mechanics shaping housing dynamics across King County.
       </p>
     </div>
   </div>
@@ -20,7 +22,7 @@
     <div class="col-md-6 col-lg-3 mb-4">
       <div class="prp-pulse-card">
         <span class="prp-pulse-icon">🏡</span>
-        <div class="prp-pulse-val">$865,000</div>
+        <div class="prp-pulse-val">$865K</div>
         <div class="prp-pulse-sub">King County Benchmark</div>
         <div class="prp-pulse-label">Median Single-Family & Condo</div>
       </div>
@@ -51,45 +53,51 @@
     </div>
   </div>
 
-  <!-- Analytical Articles -->
+  <!-- Analytical Articles in Warm Cards -->
   <div class="row">
     <div class="col-lg-6 mb-4">
-      <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 18px; padding: 2.25rem; height: 100%;">
-        <div style="color: var(--prp-accent); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Infrastructure Dynamics</div>
-        <h4 style="color: #ffffff; font-weight: 700; margin-bottom: 1rem;">Sound Transit Link Corridors & Property Values</h4>
-        <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.7;">
-          Sound Transit's light rail expansion continues to reshape Pacific Northwest urban geography. Stations along the 1 Line (connecting Sea-Tac Airport, Downtown Seattle, Capitol Hill, University of Washington, and Northgate) consistently show higher price resilience and stronger rental demand.
+      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
+        <div style="color: var(--prp-accent); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Infrastructure Dynamics</div>
+        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.25rem;">
+          Sound Transit Link Corridors & Property Demand
+        </h3>
+        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.25rem;">
+          Sound Transit's light rail network continues to be one of the strongest catalysts for residential demand across the Puget Sound. Stations along the 1 Line—connecting Sea-Tac Airport, Downtown Seattle, Capitol Hill, University of Washington, and Northgate—consistently demonstrate stronger price resilience and rental stability.
         </p>
-        <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0;">
-          The upcoming 2 Line East Link connection across Lake Washington to Bellevue and Redmond will further bridge employment corridors, reducing commute friction for tech workers between Seattle and Eastside corporate centers.
+        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0;">
+          The upcoming 2 Line connection across Lake Washington to Mercer Island, Bellevue, and Redmond tech campuses will provide seamless transit between Seattle's creative neighborhoods and Eastside employment centers.
         </p>
       </div>
     </div>
 
     <div class="col-lg-6 mb-4">
-      <div style="background: #111827; border: 1px solid var(--prp-border); border-radius: 18px; padding: 2.25rem; height: 100%;">
-        <div style="color: var(--prp-accent-emerald); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Valuation Mechanics</div>
-        <h4 style="color: #ffffff; font-weight: 700; margin-bottom: 1rem;">Understanding King County Property Taxes</h4>
-        <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.7;">
-          Washington State operates under a budget-based property tax system rather than a fixed rate system. The King County Assessor establishes fair market value annually as of January 1st, while individual taxing districts (schools, fire, city services) establish total budget requirements.
+      <div style="background: #FFFFFF; border: 1px solid var(--prp-border); border-radius: 20px; padding: 2.5rem; height: 100%; box-shadow: var(--prp-shadow);">
+        <div style="color: var(--prp-accent-warm); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem;">Tax & Valuation Mechanics</div>
+        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.4rem; margin-bottom: 1.25rem;">
+          Understanding King County Property Taxes
+        </h3>
+        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 1.25rem;">
+          Washington State operates under a budget-based property tax system rather than a fixed-rate system. The King County Assessor appraises fair market value annually as of January 1st, while individual local taxing districts determine their total budget requirements within statutory limits.
         </p>
-        <p style="color: var(--prp-text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0;">
-          Consequently, a rise in assessed value does not automatically trigger an equal tax increase; taxes only rise if a property's assessed value climbs faster than the average rate of change across the surrounding taxing district.
+        <p style="color: var(--prp-text-muted); font-size: 1rem; line-height: 1.75; margin-bottom: 0;">
+          Because tax rates adjust inversely to total district assessed value, an increase in assessed property value does not automatically translate to a proportional tax hike. Your tax bill only increases significantly if your property appreciates faster than the overall district average.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- AI Query Card -->
+  <!-- Warm AI Assistant Banner -->
   <div class="row mt-4">
     <div class="col-12">
-      <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(13, 148, 136, 0.12) 100%); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 18px; padding: 2.5rem; text-align: center;">
-        <h3 style="color: #ffffff; font-weight: 800; margin-bottom: 0.75rem;">Explore Seattle Real Estate with Local AI</h3>
-        <p style="color: var(--prp-text-muted); max-width: 650px; margin: 0 auto 1.5rem; font-size: 1rem;">
-          Have specific questions about zoning, neighborhood price differences, or local school corridors? Ask our local 7.6B neural assistant for immediate, objective insights.
+      <div style="background: var(--prp-gradient-soft); border: 1px solid #FED7AA; border-radius: 24px; padding: 3rem; text-align: center; box-shadow: var(--prp-shadow);">
+        <h3 style="color: var(--prp-text); font-weight: 800; font-size: 1.75rem; margin-bottom: 0.75rem;">
+          Explore Seattle Real Estate with Local AI
+        </h3>
+        <p style="color: var(--prp-text-muted); max-width: 650px; margin: 0 auto 1.75rem; font-size: 1.05rem; line-height: 1.65;">
+          Have specific questions about zoning changes, neighborhood price differences, or local school corridors? Ask our local 7.6B neural assistant for immediate, objective insights.
         </p>
         <button class="prp-btn-primary" onclick="openAiAssistant()">
-          <span>🤖</span> Open AI Navigator
+          <span>🤖</span> Open AI Concierge ➔
         </button>
       </div>
     </div>
