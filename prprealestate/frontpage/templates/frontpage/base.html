@@ -114,7 +114,11 @@
           <span class="text-stone-300">30+ Years Regional Provenance & Quantitative Fiduciary Discipline</span>
         </div>
         <div class="flex items-center gap-4 text-stone-400">
-          <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="hover:text-stone-100 transition-colors">Founder Portfolio ↗</a>
+          <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="hover:text-stone-100 transition-colors flex items-center gap-1.5">
+            <span class="text-stone-500">💻</span>
+            <span>Software & Systems Portfolio</span>
+            <span class="text-[10px]">↗</span>
+          </a>
           <span class="text-stone-700">|</span>
           <a href="{% url 'frontpage:contactform' %}" class="text-terracotta-muted hover:text-white font-medium transition-colors">Direct Consultation</a>
         </div>
@@ -127,7 +131,7 @@
         <div class="flex items-center justify-between h-20">
           
           <!-- Monogram & Brand Crest -->
-          <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none">
+          <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none shrink-0">
             <div class="w-11 h-11 rounded-xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-xl font-bold tracking-tight shadow-md group-hover:bg-terracotta transition-colors duration-300">
               PRP
             </div>
@@ -141,34 +145,40 @@
             </div>
           </a>
 
-          <!-- Desktop Navigation Links -->
-          <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
-            <a href="{% url 'index' %}#neighborhoods" class="hover:text-stone-950 transition-colors">Neighborhoods</a>
-            <a href="{% url 'index' %}#market-pulse" class="hover:text-stone-950 transition-colors">Market Pulse</a>
-            <a href="{% url 'index' %}#fiduciary-pillars" class="hover:text-stone-950 transition-colors">Fiduciary Tenets</a>
-            <a href="{% url 'frontpage:about' %}" class="hover:text-stone-950 transition-colors">About</a>
-            <a href="{% url 'frontpage:data' %}" class="hover:text-stone-950 transition-colors">Regional Data</a>
-            <a href="{% url 'frontpage:blog' %}" class="hover:text-stone-950 transition-colors">Journal</a>
-          </nav>
+          <!-- Desktop Navigation & Action Controls (Evenly Spaced) -->
+          <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+            <!-- Navigation Links with Uniform Pill Touch Targets -->
+            <nav class="flex items-center gap-1 xl:gap-2 text-sm font-medium text-stone-600">
+              <a href="{% url 'index' %}#neighborhoods" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">Neighborhoods</a>
+              <a href="{% url 'index' %}#market-pulse" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Pulse</a>
+              <a href="{% url 'index' %}#fiduciary-pillars" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Fiduciary Tenets</a>
+              <a href="{% url 'frontpage:about' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">About</a>
+              <a href="{% url 'frontpage:data' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Data</a>
+              <a href="{% url 'frontpage:blog' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">Journal</a>
+            </nav>
 
-          <!-- Desktop Action CTAs -->
-          <div class="hidden lg:flex items-center gap-4">
-            <!-- AI Concierge Trigger -->
-            <button onclick="openAiAssistant()" class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide uppercase bg-stone-100 text-stone-800 border border-stone-300/80 hover:bg-stone-200/70 hover:border-stone-400 transition-all duration-200 shadow-sm">
-              <span class="text-terracotta text-sm">✦</span>
-              <span>AI Concierge</span>
-            </button>
+            <!-- Refined Vertical Divider separating Nav Links from Actions -->
+            <div class="h-6 w-px bg-stone-300/80"></div>
 
-            <!-- Private Consultation CTA -->
-            <a href="{% url 'frontpage:contactform' %}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide bg-obsidian text-stone-100 hover:bg-terracotta transition-all duration-300 shadow-md hover:shadow-lg">
-              <span>Private Consultation</span>
-              <span class="text-xs">➔</span>
-            </a>
+            <!-- Action CTAs -->
+            <div class="flex items-center gap-3">
+              <!-- AI Concierge Trigger -->
+              <button onclick="openAiAssistant()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-stone-100 text-stone-800 border border-stone-300 hover:bg-stone-200/80 hover:border-stone-400 transition-all duration-200 shadow-xs whitespace-nowrap">
+                <span class="text-terracotta text-sm">✦</span>
+                <span>AI Concierge</span>
+              </button>
+
+              <!-- Private Consultation CTA -->
+              <a href="{% url 'frontpage:contactform' %}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-obsidian text-stone-100 hover:bg-terracotta transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap">
+                <span>Consultation</span>
+                <span class="text-xs">➔</span>
+              </a>
+            </div>
           </div>
 
           <!-- Mobile Hamburger Button -->
-          <div class="flex items-center gap-2 md:hidden">
-            <button onclick="openAiAssistant()" class="p-2 rounded-lg bg-stone-100 text-stone-800 text-xs font-semibold">
+          <div class="flex items-center gap-2 lg:hidden">
+            <button onclick="openAiAssistant()" class="p-2 rounded-lg bg-stone-100 text-stone-800 text-xs font-semibold flex items-center gap-1">
               <span class="text-terracotta">✦</span> AI
             </button>
             <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-stone-100 text-stone-800 hover:bg-stone-200 focus:outline-none">
@@ -182,7 +192,22 @@
       </div>
 
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-stone-50/98 px-6 py-6 space-y-4 shadow-xl">
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-200 bg-stone-50/98 px-6 py-6 space-y-4 shadow-xl">
+        <a href="{% url 'index' %}#neighborhoods" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Neighborhoods</a>
+        <a href="{% url 'index' %}#market-pulse" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Market Pulse</a>
+        <a href="{% url 'index' %}#fiduciary-pillars" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Fiduciary Tenets</a>
+        <a href="{% url 'frontpage:about' %}" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">About Ruslan</a>
+        <a href="{% url 'frontpage:data' %}" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Market Data</a>
+        <a href="{% url 'frontpage:blog' %}" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Journal</a>
+        <div class="pt-4 border-t border-stone-200 flex flex-col gap-3">
+          <button onclick="openAiAssistant(); toggleMobileMenu();" class="w-full py-3 rounded-xl bg-stone-100 border border-stone-300 text-stone-800 text-sm font-semibold flex items-center justify-center gap-2">
+            <span class="text-terracotta">✦</span> Open AI Concierge
+          </button>
+          <a href="{% url 'frontpage:contactform' %}" class="w-full py-3 rounded-xl bg-obsidian text-stone-100 text-sm font-semibold text-center hover:bg-terracotta transition-colors">
+            Initiate Private Consultation
+          </a>
+        </div>
+      </div>
         <a href="{% url 'index' %}#neighborhoods" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Neighborhoods</a>
         <a href="{% url 'index' %}#market-pulse" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Market Pulse</a>
         <a href="{% url 'index' %}#fiduciary-pillars" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Fiduciary Tenets</a>
@@ -261,9 +286,13 @@
               Led by <strong class="text-stone-200 font-semibold">Ruslan Polyak</strong>. B.A. in Economics (University of Washington), M.S. in Finance (Seattle University), full-stack systems engineer.
             </p>
             <div class="pt-2 flex flex-col gap-2 text-xs">
-              <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="text-terracotta hover:text-white font-medium transition-colors">
-                Personal Portfolio (ruslanpolyak.com) ↗
+              <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="text-terracotta hover:text-white font-medium transition-colors flex items-center gap-1.5">
+                <span>💻 Software & Systems Portfolio (ruslanpolyak.com)</span>
+                <span class="text-[10px]">↗</span>
               </a>
+              <span class="text-stone-500 text-[11px] leading-tight">
+                IT Architecture, Quantitative Systems & Engineering
+              </span>
               <a href="https://github.com/ChefGravy/Django" target="_blank" rel="noopener" class="text-stone-400 hover:text-stone-200 transition-colors">
                 Source Code (GitHub: ChefGravy/Django) ↗
               </a>
