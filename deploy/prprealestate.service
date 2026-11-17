@@ -1,0 +1,24 @@
+[Unit]
+Description=PRP Real Estate Django App (Gunicorn)
+After=network.target
+
+[Service]
+Type=simple
+User=chief-ai
+Group=chief-ai
+WorkingDirectory=/home/chief-ai/apps/prprealestate/prprealestate
+ExecStart=/home/chief-ai/apps/prprealestate/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8001 --access-logfile - --error-logfile - rprealestate.wsgi:application
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+# Security Sandbox (Zero-Loophole Isolation)
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/chief-ai/apps/prprealestate
+PrivateTmp=true
+PrivateDevices=true
+
+[Install]
+WantedBy=multi-user.target

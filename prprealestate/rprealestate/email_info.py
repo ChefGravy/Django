@@ -1,8 +1,7 @@
-#https://myaccount.google.com/lesssecureapps
-#https://myaccount.google.com/apppasswords
+import os
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'h82w84u@gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_PASSWORD = 'REDACTED_APP_PASSWORD'
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
