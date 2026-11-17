@@ -107,11 +107,16 @@
     <!-- Top Announcement / Fiduciary Trust Bar -->
     <aside class="bg-obsidian text-stone-300 text-xs py-2 px-4 border-b border-stone-800" aria-label="Announcement">
       <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-        <div class="flex items-center gap-2 tracking-wider">
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 tracking-wider">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-400"></span>
           <span class="text-stone-400 font-medium">SEATTLE PRIVATE CLIENT ADVISORY</span>
           <span class="text-stone-600">·</span>
-          <span class="text-stone-300">30+ Years Regional Provenance & Quantitative Fiduciary Discipline</span>
+          <a href="https://professions.dol.wa.gov/s/license-lookup" target="_blank" rel="noopener" class="text-amber-300 hover:text-amber-200 font-semibold underline underline-offset-2 flex items-center gap-1" title="Washington Department of Licensing Verification">
+            <span>WA License #117618 (Status: Inactive)</span>
+            <span class="text-[9px]">↗</span>
+          </a>
+          <span class="text-stone-600">·</span>
+          <span class="text-stone-400">Educational & Market Research</span>
         </div>
         <div class="flex items-center gap-4 text-stone-400">
           <a href="https://www.ruslanpolyak.com" target="_blank" rel="noopener" class="hover:text-stone-100 transition-colors flex items-center gap-1.5">
@@ -130,20 +135,36 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           
-          <!-- Monogram & Brand Crest -->
-          <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none shrink-0">
-            <div class="w-11 h-11 rounded-xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-xl font-bold tracking-tight shadow-md group-hover:bg-terracotta transition-colors duration-300">
-              PRP
-            </div>
-            <div class="flex flex-col">
-              <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-stone-900 leading-none group-hover:text-terracotta transition-colors">
-                PRP Real Estate
-              </span>
-              <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-500 mt-1">
-                Private Advisory · Seattle
-              </span>
-            </div>
-          </a>
+          <!-- Monogram & Brand Crest with Prominent Standout License Badge -->
+          <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+            <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none">
+              <div class="w-11 h-11 rounded-xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-xl font-bold tracking-tight shadow-md group-hover:bg-terracotta transition-colors duration-300">
+                PRP
+              </div>
+              <div class="flex flex-col">
+                <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-stone-900 leading-none group-hover:text-terracotta transition-colors">
+                  PRP Real Estate
+                </span>
+                <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-500 mt-1">
+                  Private Advisory · Seattle
+                </span>
+              </div>
+            </a>
+
+            <!-- Prominent Clickable WA License & Inactive Status Pill -->
+            <a 
+              href="https://professions.dol.wa.gov/s/license-lookup" 
+              target="_blank" 
+              rel="noopener" 
+              class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50/90 text-amber-900 border border-amber-300/90 hover:bg-amber-100 hover:border-amber-400 hover:text-amber-950 transition-all shadow-xs group"
+              title="Verify Washington Department of Licensing record (License #117618 · Status: Inactive / Non-Practicing)"
+            >
+              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              <span class="font-bold tracking-tight">Lic #117618</span>
+              <span class="px-1.5 py-0.5 rounded-md bg-amber-200/90 text-[10px] font-extrabold text-amber-950 uppercase tracking-wider">Inactive</span>
+              <span class="text-amber-700 text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+            </a>
+          </div>
 
           <!-- Desktop Navigation & Action Controls (Evenly Spaced) -->
           <div class="hidden lg:flex items-center gap-6 xl:gap-8">
@@ -176,8 +197,19 @@
             </div>
           </div>
 
-          <!-- Mobile Hamburger Button -->
+          <!-- Mobile Hamburger & Mobile License Pill -->
           <div class="flex items-center gap-2 lg:hidden">
+            <a 
+              href="https://professions.dol.wa.gov/s/license-lookup" 
+              target="_blank" 
+              rel="noopener" 
+              class="sm:hidden px-2 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-300 flex items-center gap-1"
+              title="WA License #117618 (Inactive)"
+            >
+              <span>#117618</span>
+              <span class="text-[9px] uppercase font-bold text-amber-700">(Inactive)</span>
+              <span>↗</span>
+            </a>
             <button onclick="openAiAssistant()" class="p-2 rounded-lg bg-stone-100 text-stone-800 text-xs font-semibold flex items-center gap-1">
               <span class="text-terracotta">✦</span> AI
             </button>
@@ -193,6 +225,19 @@
 
       <!-- Mobile Dropdown Menu -->
       <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-200 bg-stone-50/98 px-6 py-6 space-y-4 shadow-xl">
+        
+        <!-- Mobile Prominent License Status Card -->
+        <a href="https://professions.dol.wa.gov/s/license-lookup" target="_blank" rel="noopener" class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-between text-xs text-amber-950 hover:bg-amber-100 transition-colors">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <div>
+              <div class="font-bold">WA Real Estate Lic #117618</div>
+              <div class="text-[10px] text-amber-800 font-medium">Status: Inactive · Not practicing real estate</div>
+            </div>
+          </div>
+          <span class="font-bold underline text-amber-900 text-[11px] whitespace-nowrap">DOL Lookup ↗</span>
+        </a>
+
         <a href="{% url 'index' %}#neighborhoods" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Neighborhoods</a>
         <a href="{% url 'index' %}#market-pulse" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Market Pulse</a>
         <a href="{% url 'index' %}#fiduciary-pillars" onclick="toggleMobileMenu()" class="block text-base font-semibold text-stone-800 hover:text-terracotta">Fiduciary Tenets</a>
@@ -296,12 +341,17 @@
           <div>
             © 2026 PRP Real Estate. All rights reserved. Private Client Advisory.
           </div>
-          <div class="flex items-center gap-6">
+          <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-6">
+            <a href="https://professions.dol.wa.gov/s/license-lookup" target="_blank" rel="noopener" class="text-stone-400 hover:text-amber-300 transition-colors flex items-center gap-1 font-medium">
+              <span>WA DOL License #117618 (Status: Inactive)</span>
+              <span class="text-[9px]">↗</span>
+            </a>
+            <span>·</span>
             <span>Equal Housing Opportunity</span>
             <span>·</span>
             <span>Seattle, WA</span>
             <span>·</span>
-            <span>Proprietary Neural Intelligence</span>
+            <span>Educational & Market Intelligence</span>
           </div>
         </div>
       </div>
