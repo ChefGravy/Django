@@ -4,395 +4,424 @@
 {% load my_extras %}
 {% block content %}
 {% load static %}
-<title>PSRPRealEstate</title>
+<title>PRP Real Estate</title>
 
   <style media="screen">
-    #main-intro{
-      font-weight: bolder;
-      font-family: 'Rubik', sans-serif;
+    #main-intro-1{
+        font-weight: bolder;
+        font-family: 'Rubik', sans-serif;
+
+    }
+
+    #main-intro-2{
+        font-weight: bolder;
+        font-family: 'Rubik', sans-serif;
+        color: #4a2a20;
+        font-size: 20px;
+    }
+
+    #index-container-two{
+
+        background-color: rgba(242, 243, 244, 0.80);
+        border-radius: 25px;
+        height: auto;
+    }
+
+    #index-container-three{
+        background-color: rgba(242, 243, 244, 0.70);
+        border-radius: 3px;
+        margin: 10px 0 0 13px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     #index-jumbo{
-      background-image: url({% static "rprealestate/images/fall.jpg" %});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 900px;
-      opacity: 1;
+        background-image: url({% static "rprealestate/images/seattle-smaller.jpg" %});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 900px;
+        opacity: 1;
     }
 
-    #row-one{
-      width: 100%;
+
+    #affiliates{
+        text-align: right;
+    }
+
+    #main-container{
+        margin:auto;
     }
 
     #row-neighborhoods{
-      width:100%;
+      margin-bottom: 215px;
     }
-
-    #affiliate{
-      text-align: right;
-    }
-
-
   </style>
 
   <div id='index-jumbo' class="jumbotron">
     <div class="row">
-       <div id ='index-container' class="col-sm-4">
-         <span class='align-middle'>
-           <h1 id='main-intro' class="display-4">LET ME HELP YOU FIND YOUR PERFECT HOME</h1>
-           <p id='main-intro' class="text-light bg-dark">Whether you are looking to buy your dream home, or sell your existing one, let me help you make it
-             an easy transaction with <span id='competitive-rates' style='text-decoration: underline;'>competitive rates!</span> <br><br>Start today with a free consultation.</p>
-           <!-- FREE CONSULTTION MODAL -->
-           <button id='free-consultation' class="btn btn-info" data-toggle="modal" data-target="#exampleModalLongph"><b>GET FREE CONSULTATION</b></button>
-
-           <div class="modal fade" id="exampleModalLongph" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-             <div class="modal-dialog" role="document">
-               <div class="modal-content">
-                 <div class="modal-header">
-                   <h5 class="modal-title" id="exampleModalLongTitle">Free Consultation:</h5>
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                   </button>
-                 </div>
-                 <div class="modal-body" style="font-family: 'Rubik', sans-serif;">
-                   <p>Give me a call @ (206) 601-2325!
-                   </p>
-                 </div>
-                 <div class="modal-footer">
-                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <!-- MODAL END -->
-         </span>
-       </div>
+        <div id ='index-container-one' class="col-sm-5">
+            <h1 id='main-intro-1' class="display-4">LET ME HELP YOU FIND YOUR PERFECT HOME</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div id ='index-container-two' class="col-sm-5">
+            <span id='main-intro-2'>Whether you are looking to buy your dream home, or sell your existing one, let me help you make it an easy transaction with
+            <span id='competitive-rates' style='text-decoration: underline;'>competitive rates!</span><br><br>Start today with a free consultation.</span>
+        </div>
+    </div>
+    <div class="row">
+        <div id ='index-container-three' class="btn-consultation">
+            <!-- FREE CONSULTTION MODAL -->
+            <button id='free-consultation' class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModalLongph"><b>GET FREE CONSULTATION</b></button>
+            <div class="modal fade" id="exampleModalLongph" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Free Consultation:</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="font-family: 'Rubik', sans-serif;">
+                            <p>
+                                <a href="{% url "frontpage:contactform" %}" style='color: black;'>Contact Me</a>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL END -->
+        </div>
     </div>
   </div>
 
 
 
-  <div id='main-container' class='container col-sm-10'>
-    <div id='row-one' class="row">
-      <div class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
-        <h2>About Me</h2>
-        <p>
-          I know how difficult and stressful a Real Estate transaction can be, which is why I guarantee an experience that you will not soon forget! In addition to great service,
-          my fee structure is very flexible.
-        </p>
-        <p>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-            View Details »
-          </button>
+    <div id='main-container' class='col-sm-11'>
+        <div id='row-one' class="row">
 
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">About:</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body" style="font-family: 'Rubik', sans-serif;">
-                  <p>Hi, I am Ruslan. I am a real estate broker with North Pacific Properties.</p>
-                  <p> North Pacific Properties is a privately owned real estate firm awarded 29th of the most successful companies in Puget Sound.
-                      North Pacific Properties is a full service real estate brokerage company located in Seattle, Washington. Our central mission
-                      is to provide our clients with expert and well-rounded real estate service throughout the Seattle and surrounding King County,
-                      Kitsap County, and Snohomish County areas while meeting the individual needs of our clients, one client at a time.
-                  </p>
-                  <p>
-                     I grew up in Seattle and I love all the Pacific Northwest has to offer. Some of my favorite neighborhoods include Queen Anne,
-                     Capitol Hill, Ballard, Greenwood, Fremont, and West Seattle. I hold a B.A. in Economics from UW and a Masters of Science in Finance
-                     from Seattle University. My goal is to make real estate as enjoyable and stress free as possible through my experience in real estate
-                     and my knowledge in finance.
-                  </p>
-                  <p>
-                    In addition to real estate, I also enjoy developing Web Applications in JavaScript and Python. I created this website as a fun side project
-                    using Django 3.0.3 and Bootstrap V4.5. I will continue to improve and add features to this website so if there is something else you would like to see, please let me know.
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+            <div class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
+                <h2>About Me</h2>
+                <p>
+                    I know how difficult and stressful a Real Estate transaction can be, which is why I guarantee an experience that you will not soon forget! In addition to great service,
+                    my commission rates are very flexible.
+                <p>
+                <!-- Button trigger modal -->
+                <button id='btn_viewdetails' type='button' class='btn btn-outline-dark' data-toggle="modal" data-target="#exampleModalLong">View Details »</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">About Me:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body" style="font-family: 'Rubik', sans-serif;">
+                                <p>
+                                    Hi, I am Ruslan. I am a real estate broker with Best Choice Realty.
+                                </p>
+                                <p>
+                                     I grew up in Seattle and I love all the Pacific Northwest has to offer. Some of my favorite neighborhoods include Queen Anne,
+                                     Capitol Hill, Ballard, Greenwood, Fremont, and West Seattle. I hold a B.A. in Economics from UW and a Masters of Science in Finance
+                                     from Seattle University. My goal is to make real estate as enjoyable and stress free as possible through my experience in real estate
+                                     and my knowledge in finance.
+                                </p>
+                                <p>
+                                    In addition to real estate, I also enjoy developing Web Applications in JavaScript and Python. I created this website as a fun side project
+                                    using Django 3.0.3 and Bootstrap V4.5. I will continue to improve and add features to this website so if there is something else you would like to see, please let me know.
+                                </p>
+                                <p>
+                                    If you would like to see some of my other fun projects that I build on the side, feel free to visit me @ <a href="http://www.ruslanpolyak.com">ruslanpolyak.com</a>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
               </div>
+                </p>
             </div>
-          </div>
-        </p>
-      </div>
 
-      <div id='blog' class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
-        <h2>Real Estate News</h2>
-        <p>
-          Developments in the PNW real estate market.
-        </p>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterNews">
-          View details »
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenterNews" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">News:</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- blog STARTS here -->
-                News Article:
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
-                  <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
-                  <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                  <br>
-                  Market Statistics:
-                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
-                  </svg>
-                </svg>
-                <div class="container">
-                  <div class="col-sm-8" style="background-color:#ECECEC;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
-                      <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
-                      <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                   </svg>
-                    <a href="https://www.seattletimes.com/business/amazon/amazon-continues-hiring-push-in-tech-hubs-with-former-hq2-new-york-in-line-for-2000-jobs/" style='color: black;'>
-                      Amazon continues hiring push in tech hubs, with former HQ2 New York in line for 2,000 jobs </a>
-                  </div>
-                </div>
+            <div id='blog' class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
+                <h2>Real Estate News</h2>
                 <p>
-                <div class="container">
-                  <div class="col-sm-8" style="background-color:#e6f2ff;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
-                      <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
-                      <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                   </svg>
-                    <a href="https://www.seattletimes.com/business/real-estate/peter-g-miller-how-many-mortgage-payments-can-i-miss-before-foreclosure/" style='color: black;'>
-                      How many mortgage payments can I miss before foreclosure? </a>
-                  </div>
-                </div>
-                <p>
-                <div class="container">
-                  <div class="col-sm-8" style="background-color:#ECECEC;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
-                      <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
-                      <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                   </svg>
-                    <a href="https://www.king5.com/article/entertainment/television/programs/new-day-northwest/buy-and-sell-real-estate-homes/281-5eb3be6f-86ee-4b68-b981-f0d9ac5f3d9a" style='color: black;'>
-                      It's still a good time to buy and sell a house in the PNW (With a few caveats) </a>
-                  </div>
-                </div>
-                <p>
-                <div class="container">
-                  <div class="col-sm-8" style="background-color:#e6f2ff;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
-                    </svg>
-                    <a href="https://www.pnwr.com/blog/opportunities-abound-for-home-buyers-and-sellers-but-brokers-say-dont-delay/" style='color: black;'>
-                      Opportunities abound for home buyers and sellers, but brokers say don’t delay </a>
-                  </div>
-                </div>
-                <p>
-                <div class="container">
-                  <div class="col-sm-8" style="background-color:#ECECEC;">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
-                    </svg>
-                    <a href="https://www.pnwr.com/blog/northwest-mls-brokers-report-robust-activity-amid-low-interest-rates-tight-inventory-changing-lifestyles/" style='color: black;'>
-                      Northwest MLS brokers report robust activity amid low interest rates, tight inventory, changing lifestyles</a>
-                  </div>
-                </div>
-                <!-- blog ENDS here -->
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  Developments in the PNW real estate market.
+                </p>
+                <!-- Button trigger modal -->
+                <button id='btn_viewdetails' class='btn btn-outline-dark' type="button" data-toggle="modal" data-target="#exampleModalCenterNews">View details »</button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenterNews" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">News:</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- blog STARTS here -->
+                                News Article:
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
+                                    <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                </svg>
+                                <br>
+                                Market Statistics:
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+                                </svg>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#ECECEC;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
+                                            <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                        </svg>
+                                        <a href="https://www.seattletimes.com/business/amazon/amazon-continues-hiring-push-in-tech-hubs-with-former-hq2-new-york-in-line-for-2000-jobs/" style='color: black;'>Amazon continues hiring push in tech hubs, with former HQ2 New York in line for 2,000 jobs </a>
+                                    </div>
+                                </div>
+                                <p>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#e6f2ff;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
+                                            <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                        </svg>
+                                        <a href="https://www.seattletimes.com/business/real-estate/peter-g-miller-how-many-mortgage-payments-can-i-miss-before-foreclosure/" style='color: black;'>How many mortgage payments can I miss before foreclosure? </a>
+                                    </div>
+                                </div>
+                                <p>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#ECECEC;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-newspaper" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M0 2A1.5 1.5 0 0 1 1.5.5h11A1.5 1.5 0 0 1 14 2v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 0 14V2zm1.5-.5A.5.5 0 0 0 1 2v12a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5h-11z"/>
+                                            <path fill-rule="evenodd" d="M15.5 3a.5.5 0 0 1 .5.5V14a1.5 1.5 0 0 1-1.5 1.5h-3v-1h3a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 1 .5-.5z"/>
+                                            <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                       </svg>
+                                    <a href="https://www.king5.com/article/entertainment/television/programs/new-day-northwest/buy-and-sell-real-estate-homes/281-5eb3be6f-86ee-4b68-b981-f0d9ac5f3d9a" style='color: black;'>It's still a good time to buy and sell a house in the PNW (With a few caveats) </a>
+                                    </div>
+                                </div>
+                                <p>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#e6f2ff;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+                                        </svg>
+                                        <a href="https://www.pnwr.com/blog/opportunities-abound-for-home-buyers-and-sellers-but-brokers-say-dont-delay/" style='color: black;'>Opportunities abound for home buyers and sellers, but brokers say don’t delay </a>
+                                    </div>
+                                </div>
+                                <p>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#ECECEC;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+                                        </svg>
+                                        <a href="https://www.pnwr.com/blog/northwest-mls-brokers-report-robust-activity-amid-low-interest-rates-tight-inventory-changing-lifestyles/" style='color: black;'>Northwest MLS brokers report robust activity amid low interest rates, tight inventory, changing lifestyles</a>
+                                    </div>
+                                </div>
+                                <p>
+                                <div class="container">
+                                    <div class="col-sm-8" style="background-color:#e6f2ff;">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calculator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+                                        </svg>
+                                        <a href="{% static "rprealestate/pdf/NWMLS NR_September 2020.pdf" %}" style='color:red;'>Would-be homebuyers have more buying power, but also more competition for meager inventory!</a>
+                                        <br>
+                                        <mark>*This is a .pdf provided to real estate brokers by the <a href="https://nwmls.com/">NWMLS</a>.</mark>
+                                    </div>
+                                </div>
+
+                                <!-- blog ENDS here -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-          </div>
-        </div>
-      </div>
 
 
-      <div id='data' class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
-        <h2>Charts</h2>
-        <p>
-          If you are curious about current trends, then you'll love these charts.
-          If you have any questions or would like to see more, please head over to my
-          <a id='c-link' color='blue' href="{% url 'frontpage:contactform' %}">contact form</a>,
-          there you can submit your request.
-        </p>
-          <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterData">View details »</button>
-        <!-- Modal -->
-        <div class="modal fade bd-example-modal-lg" id="exampleModalCenterData" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Charts:</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
+            <div id='data' class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
+                <h2>Charts</h2>
+                <p>
+                  If you are curious about current trends, then you'll love these charts.
+                  If you have any questions or would like to see more, please head over to my
+                  <a id='c-link' color='blue' href="{% url 'frontpage:contactform' %}">contact form</a>,
+                  there you can submit your request.
+                </p>
+                  <!-- Button trigger modal -->
+                <button id='btn_viewdetails' class='btn btn-outline-dark' type="button" data-toggle="modal" data-target="#exampleModalCenterData">View details »</button>
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" id="exampleModalCenterData" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Charts:</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-              <div class="modal-body">
-                <div class="container">
-                  <h1 id='data-name' class="display-5">NWMLS YTD Charts:</h1>
-                  <p id='data-intro' class="lead">These charts represent King County Year-to-Date! If you would like to see a different county or something more specific, please contact me via e-mail or my Contact Form.</p>
-                  <p>
-                </div>
+                            <div class="modal-body">
+                                <div class="container">
+                                    <h1 id='data-name' class="display-5">NWMLS YTD Charts:</h1>
+                                    <p id='data-intro' class="lead">These charts represent King County Year-to-Date! If you would like to see a different county or something more specific, please contact me via e-mail or my Contact Form.</p>
+                                    <p>
+                                </div>
 
-                <div id='nwmls-chart-one' class="col-sm-9">
-                 <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPA-66y?w=800&h=600" />
+                                <div id='nwmls-chart-one' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPA-66y?w=800&h=600" />
+                                </div>
+                                <div id='nwmls-chart-two' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPq-NiY?w=800&h=600" />
+                                </div>
+                                <div id='nwmls-chart-two' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPX-Eor?w=800&h=600" />
+                                </div>
+                                <div id='nwmls-chart-two' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPr-vF6?w=800&h=600" />
+                                </div>
+                                <div id='nwmls-chart-two' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPa-xb0?w=800&h=600" />
+                                </div>
+                                <div id='nwmls-chart-two' class="col-sm-9">
+                                    <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPi-IAR?w=800&h=600" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id='nwmls-chart-two' class="col-sm-9">
-                  <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPq-NiY?w=800&h=600" />
-                </div>
-                <div id='nwmls-chart-two' class="col-sm-9">
-                  <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPX-Eor?w=800&h=600" />
-                </div>
-                <div id='nwmls-chart-two' class="col-sm-9">
-                  <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPr-vF6?w=800&h=600" />
-                </div>
-                <div id='nwmls-chart-two' class="col-sm-9">
-                  <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPa-xb0?w=800&h=600" />
-                </div>
-                <div id='nwmls-chart-two' class="col-sm-9">
-                  <img width=100% height=100% src="http://nwmls.stats.showingtime.com/infoserv/s-v1/uzPi-IAR?w=800&h=600" />
-                </div>
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
-        <h2>Market Reports</h2>
-        <p>
-          Are you data driven? Data never lies and allows you to make smarter decisions.
-        </p>
-        <!-- Collapse -->
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        View details »
-        </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            These market reports present an overview of the Real Estate market in WA. If you'd like to see previous months or data for a specific area, please send me a request via e-mail.
-            <hr style="border-top: dotted 2px;" />
-            <a href="{% static "rprealestate/pdf/recaps_2020_jul_Recaps.pdf" %}" style='color:black;'>NWMLS: July Residential + Condo recap by county</a>
-            <br>
-            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_YTDSummary.pdf" %}" style='color:black;'>NWMLS: July YTD Summary</a>
-            <br>
-            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_PriceUnits.pdf" %}"style='color:black;'>NWMLS: July Price Range and Bedrooms</a>
-            <br>
-            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_summary.pdf" %}" style='color:black;'>NWMLS: July Summary Report</a>
-            <br>
 
-          </div>
+                <div class="col-sm-3" style="font-family: 'Rubik', sans-serif;">
+                    <h2>Market Reports</h2>
+                    <p>Are you data driven? Data never lies and allows you to make smarter decisions.</p>
+                    <!-- Collapse -->
+                    <button id='btn_viewdetails' type="button" class='btn btn-outline-dark' data-toggle="modal" data-target="#market-reports">View details »</button>
+                    <!-- MARKET REPORTS MODAL START -->
+                    <div class="modal fade" id="market-reports" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Market Reports</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            These market reports present an overview of the Real Estate market in WA. If you'd like to see previous months or data for a specific area, please send me a request via e-mail.
+                            <hr style="border-top: dotted 2px;" />
+                            <a href="{% static "rprealestate/pdf/recaps_2020_jul_Recaps.pdf" %}" style='color:black;'>NWMLS: July Residential + Condo recap by county</a>
+                            <br>
+                            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_YTDSummary.pdf" %}" style='color:black;'>NWMLS: July YTD Summary</a>
+                            <br>
+                            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_PriceUnits.pdf" %}"style='color:black;'>NWMLS: July Price Range and Bedrooms</a>
+                            <br>
+                            <a href="{% static "rprealestate/pdf/reportssum_2020_jul_summary.pdf" %}" style='color:black;'>NWMLS: July Summary Report</a>
+                            <br>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- MARKET REPORTS MODAL END -->
+                </div>
         </div>
-      </div>
+
+
+          <p>
+            <hr style="border-top: solid 2px; width: 50%; color: gray;" />
+          <p>
+
+        <div id='row-neighborhoods' class="row">
+            <div class="col-sm-8" style="font-family: 'Rubik', sans-serif;">
+                <h2>My Favorite Seattle Neighborhoods:</h2><p>
+                Having been raised in Seattle since the early '90s, I've had a front row seat to this city's transformation into the tech giant that it is today.
+                Currently, Seattle is undergoing an extensive change spurred by the success of Amazon, which has now surpassed Microsoft as the richest publicly owned
+                company in the world.<p>
+                As a result, Seattle is assuming its place among major vibrant, energetic metropolises like New York City and Los Angeles. With this growth, the city offers increased
+                amentities and highlights its best offerings for anyone local or just visiting.
+                <p>
+                Ballard: <a href="{% static "rprealestate/pdf/98107.pdf" %}"><span class="badge badge-pill badge-info">Ballard Market</span></a>
+                <p>
+                Biscuit & Bean, Reuben's Brews, Gracia, Stone Gardens, Ballard Locks, Trailbend Taprooms, and Ballard Market are just a few names that I think about when someone says, "Let's go to Ballard".
+                I can spend an entire day roaming around Ballard and still not see all that Ballard has to offer. Have you ever been to the Ballard Locks during the summer and watch Salmon pass through to travel 40-50 miles upriver to spawn?
+                Sockeye, with over 50,000 per year, can be seen from mid-June to mid-July. Chinook average around 10,000 per year with peak viewing mostly in August. Coho average around 15,000 per year with peak viewing in September.
+                Steelhead, unfortunately, are no longer seen at the Locks.
+                <p>
+                Fremont: <a href="{% static "rprealestate/pdf/98107.pdf" %}"><span class="badge badge-pill badge-info">Fremont Market</span></a>
+                <p>
+                Arguably one of my favorite Seattle neighborhoods and if I could live anywhere in Seattle, this would be it! Fremont Troll, Lenin Statue, Fremont Bridge, Rocket, Guidepost, Waiting for the Interurban, Dinosaur Topiary, Ship Canal, and Sri Chimnoy are all a must see
+                if you're ever in the neighborhood. Of course, one of my favorite sites to see whenever I am in the neighborhood is the Fremont Troll. But as much as I love the Fremont Troll, there is so much more to Fremont:
+                Fremont Brewing Company, Schilling Cider House, Fainting Goat Gelato, Theo Chocolate, Jive Time Records, Portage Bay Goods, and Milstead & Co. I love Fremont even more because you're a hop, skip, and a jump
+                from Gas Works Park which is absolutely amazing during the summer and if you love running and/or biking, the Burke-Gilman Trail is right around the corner.
+                <p>
+                Queen Anne: <a href="{% static "rprealestate/pdf/98119.pdf" %}"><span class="badge badge-pill badge-info">Queen Anne Market</span></a><br>
+                <p>
+                If there is one neighborhood in the Seattle that has changed more than any other, it's probably going to be Queen Anne. I know this because I went to middle school there: New Options Middle School, also known as just N.O.M.S.
+                This was back in the mid to late '90s and I'll never forget it. The school is no longer there but the building remains. You can read more about it <a href="https://www.historylink.org/File/10563">here</a>; it was actually
+                built around 1862. I love Queen Anne because it sits on top of a hill and is super close to the Space Needle, Chihuly Garden and Glass, and Seattle Center. The reason this is important is because once a year
+                during about the third week of the month of July, this happens, <a href="https://www.biteofseattle.com/">The Bite of Seattle</a> and it's at the Seattle Center. It is arguably one of my favorite events of the year
+                and I make every effort to go. I love the entertainment, the food, the beer, and all the attractions this event brings. If you've never been, I highly recommend it. In addition to all of this,
+                if you're ever in the neighborhood and you're craving something delicious, I highly recommend Bounty Kitchen or Toulouse Petit.
+                <p>
+                Greenwood: <a href="{% static "rprealestate/pdf/98103.pdf" %}"><span class="badge badge-pill badge-info">Greenlake/Greenwood Market</span></a>
+                <a href="{% static "rprealestate/pdf/98117.pdf" %}"><span class="badge badge-pill badge-info">Greenwood/LoyalHeights Market</span></a>
+                <p>
+                Known as the area around 85th Street and Greenwood Avenue, it is booming with coffeehouses, antique stores, bars, and eateries. One of my favorite restaurants to visit is
+                Flintcreek Cattle and is located on corner of 85th and Greenwood Ave N. Once a year, Greenwood hosts the Greenwood Car Show that happens every June and the Seafair Parade in August. The Seafair
+                parade is complete with Seafair Pirates and a synchronized motorcycle routine by the local police force. The monthly art walks showcase not only local artist, but give you a chance to tour all
+                of the interesting businesses along Greenwood Ave. If you love classic cars, the Car Show is definitely the event for you and right after the Car Show you can head over to any number of breweries right around the corner. If you're hungry, there is also
+                a rotating schedule of daily food trucks - making it the perfect spot for a quick bite and a beer! And if you have a sweet tooth, don't forget the homemade truffles at Chocolati Cafe.
+                <p>
+                Capitol Hill: <a href="{% static "rprealestate/pdf/98122.pdf" %}"><span class="badge badge-pill badge-info">Capitol Hill Market</span></a>
+                <a href="{% static "rprealestate/pdf/98112.pdf" %}"><span class="badge badge-pill badge-info">North Capitol Hill Market</span></a><br>
+                <p>
+                Arguably one of Seattle's most popular nightlife and entertainment neighborhoods. Much like Queen Anne, Capitol Hill is situated on a steep hill that is east of the city's downtown central business district.
+                One thing I loved and miss about living on Capitol Hill is that I was always super close to the freeway, which reduced my commute times drastically, and you're just minutes from downtown Seattle. Capitol Hill's biggest street is Broadway and it's
+                absolutely packed with shops, apartment buildings, restaurants, bars, specialty stores, and much much more. If you are ever on Broadway and craving something delicious, Seattle's famous burger chain Dick's is
+                located right in the middle of E Olive Way and E Denny Way. If you're a foodie, Dick's is definitely worth a try. Not too far from Dick's is Seattle's Startbucks Reserve Roastery and is located on 1124 Pike St. This
+                location has ample room to relax, have a delicious snack, and enjoy the rarest, most extraordinary coffee that Starbucks has to offer. If you're on Boren Ave, Little Neon Taco serves Mexican fare with modern flair; don't miss
+                the mole chicken wings or the carnitas torta.
+                <br><br>
+                In addition to amazing food and coffee, I also recommend a visit to Blade & Timber (206 Broadway E) and try your hand in some axe-throwing, Garage Billiars & Bowl (1130 Broadway) for some food and entertainment, Rock Box (1603 Nagle Pl)
+                for some karaoke in one of the twelve private rooms with full service or hang out in the lively bar and broadcast your talents to a larger crowd, or No Parking on Pike (1102 E Pike St) which is a hodgepodge of quirky collectibles and vintage home decor.
+                <p>
+                West Seattle: <a href="{% static "rprealestate/pdf/98119.pdf" %}"><span class="badge badge-pill badge-info">WestSeattle Market</span></a>
+                <a href="{% static "rprealestate/pdf/98136.pdf" %}"><span class="badge badge-pill badge-info">West Seattle Fauntleroy Market</span></a><br>
+                <p>
+                Alki Beach is arguably one of West Seattle's biggest attractions! You can rent bikes, inline skates, stand-up paddleboards, and kayaks from Alki Kayak Tours(1660 Harbor Ave SW) or you can relax with a Sounder Stout at West Seattle Brewing Co.
+                (4415 Fauntleroy Way SW). Not a fan of beer, or perhaps you're in the mood for some cider? Locust Cider (2820 Alike Ave) has exactly what you're looking for; you can check out their cold gluten-free flight while enjoying an incredible view of Puget Sound.
+                For a waterside stroll, visit Lincoln Park and keep an eye out for seals while enjoying views of the Olympic Mountain Range. On Sundays, sample regional produce at the year-round West Seattle Farmer Market (SW Alaska St & California Ave SW).
+                <p>
+                The heart of West Seattle's retail district is the Junction. It is a lively three-block stretch that has something for everyone, whether you're looking for a vintage vinyl, or locally made. Boutiques range from a gift shop Capers (4525 California Ave SW) to
+                Click! Design that Fits (4540 California Ave SW), which houses an array of Pacific Northwest-centric offerings. Easy Street Records (4559 California Ave SW) is a draw for record afficionados and casual browsers alike, and also has a popular cafe.
+                <p>
+                If you're in the mood for something delicious, West Seattle is bountiful! Grab a morning latte beachside at Ampersand Cafe on Alki (2536 Alki Ave SW) and a pastry from the beloved Bakery Nouveau (4737 California Ave SW), where twice-baked croissants are just the
+                tip of the iceberg. In the mood for Hawaiian-fusion? Don't miss Ma'ono (4437 California Ave SW), where fried chicken is absolutely legendary, and waterfront mainstay Marination Ma Kai (1660 Harbor Ave SW) whose Spam sliders go great with kimchi fried rice. Or
+                perhaps you're in the mood for some Italian. If so, you must check out Raccolto (4147 California Ave SW) or beautiful new Il Nido (2717 61st Ave SW). If you're in the mood for some house made ice cream, the Husky Deli (4721 California Ave SW, Seattle, WA) is the spot with
+                over a dozen flavors like French orange or rum truffle and to top it all off, a Prohibition-inspired nightcap, knock three times at The Alley (4509 California Ave SW)!
+                <p>
+                <b>Last but not least!</b> This is by no means a complete list of all the wonderful neighborhoods Seattle has to offer. These are just the neighborhoods that I either grew up in or frequently visited.
+                If you're interested in learning about other neighborhoods, rental rates, or would like to see Market Reports, please submit a request via my Contact Form or feel free to give me a call!
+            </div>
+
+        </div>
     </div>
-
-      <p>
-        <hr style="border-top: dotted 1px; width: 75%;" />
-      <p>
-    <div id='row-neighborhoods' class="row">
-      <div class="col-sm-8" style="font-family: 'Rubik', sans-serif;">
-        <h2>My Favorite Seattle Neighborhoods:</h2><p>
-        Having been raised in Seattle since the early '90s, I've had a front row seat to this city's transformation into the tech giant that it is today.
-        Currently, Seattle is undergoing an extensive change spurred by the success of Amazon, which has now surpassed Microsoft as the richest publicly owned
-        company in the world.<p>
-        As a result, Seattle is assuming its place among major vibrant, energetic metropolises like New York City and Los Angeles. With this growth, the city offers increased
-        amentities and highlights its best offerings for anyone local or just visiting.
-        <p>
-        Ballard: <a href="{% static "rprealestate/pdf/98107.pdf" %}"><span class="badge badge-pill badge-info">Ballard Market</span></a>
-        <p>
-        Biscuit & Bean, Reuben's Brews, Gracia, Stone Gardens, Ballard Locks, Trailbend Taprooms, and Ballard Market are just a few names that I think about when someone says, "Let's go to Ballard".
-        I can spend an entire day roaming around Ballard and still not see all that Ballard has to offer. Ever been to the Ballard Locks during the summer and watch Salmon pass through to travel 40-50 miles upriver to spawn?
-        Sockeye, with over 50,000 per year, can be seen from mid-June to mid-July. Chinook average around 10,000 per year with peak viewing mostly in August. Coho average around 15,000 per year with peak viewing in September.
-        Steelhead, unfortunately, are no longer seen at the Locks.
-        <p>
-        Fremont: <a href="{% static "rprealestate/pdf/98107.pdf" %}"><span class="badge badge-pill badge-info">Fremont Market</span></a>
-        <p>
-        Arguably one of my favorite Seattle neighborhoods and if I could live anywhere in Seattle, this would be it! Fremont Troll, Lenin Statue, Fremont Bridge, Rocket, Guidepost, Waiting for the Interurban, Dinosaur Topiary, Ship Canal, and Sri Chimnoy are all a must see
-        if you're ever in the neighborhood. Of course, one of my favorite sites to see whenever I am in the neighborhood is the Fremont Troll. But as much as I love the Fremont Troll, there is so much more to Fremont:
-        Fremont Brewing Company, Schilling Cider House, Fainting Goat Gelato, Theo Chocolate, Jive Time Records, Portage Bay Goods, and Milstead & Co. I love Fremont even more because you're a hop, skip, and a jump
-        from Gas Works Park which is absolutely amazing during the summer and if you love running and/or biking, the Burke-Gilman Trail is right around the corner.
-        <p>
-        Queen Anne: <a href="{% static "rprealestate/pdf/98119.pdf" %}"><span class="badge badge-pill badge-info">Queen Anne Market</span></a><br>
-        <p>
-        If there is one neighborhood in the Seattle that has changed more than any other, it's probably going to be Queen Anne. I know this because I went to middle school there: New Options Middle School, also knows as just N.O.M.S.
-        This was back in the mid to late '90s and I'll never forget it. The school is no longer there but the building remains. You can read more about it <a href="https://www.historylink.org/File/10563">here</a>; it was actually
-        built around 1862. I love Queen Anne because it sits on top of a hill and is super close to the Space Needle, Chihuly Garden and Glass, and Seattle Center. The reason this is important is because once a year
-        during about the third week of the month of July, this happens, <a href="https://www.biteofseattle.com/">The Bite of Seattle</a> and it's at the Seattle Center. It is arguably one of my favorite events of the year
-        and I make every effort to go. I love the entertainment, the food, the beer, and all the attractions this event brings. If you've never been, I highly recommend it. In addition to all of this,
-        if you're ever in the neighborhood and you're craving something delicious, I highly recommend Bounty Kitchen or Toulouse Petit.
-        <p>
-        Greenwood: <a href="{% static "rprealestate/pdf/98103.pdf" %}"><span class="badge badge-pill badge-info">Greenlake/Greenwood Market</span></a>
-        <a href="{% static "rprealestate/pdf/98117.pdf" %}"><span class="badge badge-pill badge-info">Greenwood/LoyalHeights Market</span></a>
-        <p>
-        Known as the area around 85th Street and Greenwood Avenue, it is booming with coffeehouses, antique stores, bars, and eateries. One of my favorite restaurants to visit is
-        Flintcreek Cattle and is located on corner of 85th and Greenwood Ave N. Once a year, Greenwood hosts the Greenwood Car Show that happens every June and the Seafair Parade in August. The Seafair
-        parade is complete with Seafair Pirates and a synchronized motorcycle routine by the local police force. The monthly art walks showcase not only local artist, but give you a chance to tour all
-        of the interesting businesses along Greenwood Ave. If you love classic cars, the Car Show is definitely the event for you and right after the Car Show you can head over to any number of breweries right around the corner. If you're hungry, their is also
-        a rotating schedule of daily food trucks - making it the perfect spot for a quick bite and a beer! And if you have a sweet tooth, don't forget the homemade truffles at Chocolati Cafe.
-        <p>
-        Capitol Hill: <a href="{% static "rprealestate/pdf/98122.pdf" %}"><span class="badge badge-pill badge-info">Capitol Hill Market</span></a>
-        <a href="{% static "rprealestate/pdf/98112.pdf" %}"><span class="badge badge-pill badge-info">North Capitol Hill Market</span></a><br>
-        <p>
-        Arguably one of Seattle's most popular nightlife and entertainment neighborhoods. Much like Queen Anne, Capitol Hill is situated on a steep hill that is east of the city's downtown central business district.
-        One thing I loved and miss about living on Capitol Hill is that I was always super close to the freeway which reduced my commute times drastically and you're just minutes from downtown Seattle. Capitol Hill's biggest street is Broadway and it's
-        absolutely packed with shops, apartment buildings, restaurants, bars, specialty stores, and much much more. If you are ever on Broadway and craving something delicious, Seattle's famous burger chain Dick's is
-        located right in the middle of E Olive Way and E Denny Way. If you're a foodie, Dick's is definitely worth a try. Not too far from Dick's is Seattle's Startbucks Reserve Roastery and is located on 1124 Pike St. This
-        location has ample room to relax, have a delicious snack, and enjoy the rarest, most extraordinary coffee that Starbucks has to offer. If you're on Boren Ave, Little Neon Taco serves Mexican fare with modern flair; don't miss
-        the mole chicken wings or the carnitas torta.
-        <br><br>
-        In addition to amazing food and coffee, I also recommend a visit to Blade & Timber (206 Broadway E) and try your hand in some axe-throwing, Garage Billiars & Bowl (1130 Broadway) for some food and entertainment, Rock Box (1603 Nagle Pl)
-        for some karaoke in one of the twelve private rooms with full service or hang out in the lively bar and broadcast your talents to a larger crowd, or No Parking on Pike (1102 E Pike St) which is a hodgepodge of quirky collectibles and vintage home decor.
-        <p>
-        West Seattle: <a href="{% static "rprealestate/pdf/98119.pdf" %}"><span class="badge badge-pill badge-info">WestSeattle Market</span></a>
-        <a href="{% static "rprealestate/pdf/98136.pdf" %}"><span class="badge badge-pill badge-info">West Seattle Fauntleroy Market</span></a><br>
-        <p>
-        Alki Beach is arguably one of West Seattle's biggest attractions! You can rent bikes, inline skates, stand-up paddleboards, and kayaks from Alki Kayak Tours(1660 Harbor Ave SW) or you can relax with a Sounder Stout at West Seattle Brewing Co.
-        (4415 Fauntleroy Way SW). Not a fan of beer, or perhaps you're in the mood for some cider? Locust Cider (2820 Alike Ave) has exactly what you're looking for; you can check out their cold gluten-free flight while enjoying an incredible view of Puget Sound.
-        For a waterside stroll, visit Lincoln Park and keep an eye out for seals while enjoying views of the Olympic Mountain Range. On Sundays, sample regional produce at the year-round West Seattle Farmer Market (SW Alaska St & California Ave SW).
-        <p>
-        The heart of West Seattle's retail district is the Junction. It is a lively three-block stretch that has something for everyone, whether you're looking for a vintage vinyl, or locally made. Boutiques range from a gift shop Capers (4525 California Ave SW) to
-        Click! Design that Fits (4540 California Ave SW), which houses an array of Pacific Northwest-centric offerings. Easy Street Records (4559 California Ave SW) is a draw for record afficionados and casual browsers alike, and also has a popular cafe.
-        <p>
-        If you're in the mood for something delicious, West Seattle is bountiful! Grab a morning latte beachside at Ampersand Cafe on Alki (2536 Alki Ave SW) and a pastry from the beloved Bakery Nouveau (4737 California Ave SW), where twice-baked croissants are just the
-        tip of the iceberg. In the mood for Hawaiian-fusion? Don't miss Ma'ono (4437 California Ave SW), where fried chicken is absolutely legendary, and waterfront mainstay Marination Ma Kai (1660 Harbor Ave SW) whose Spam sliders go great with kimchi fried rice. Or
-        perhaps you're in the mood for some Italian. If so, you must check out Raccolto (4147 California Ave SW) or beautiful new Il Nido (2717 61st Ave SW). If you're in the mood for some house made ice cream, the Husky Deli is the spot with
-        over a dozen flavors like French orange or rum truffle and to top it all off, a Prohibition-inspired nightcap, knock three times at The Alley (4509 California Ave SW)!
-        <p>
-        Last but not least! This is by no means a complete list of all the wonderful neighborhoods Seattle has to offer. These are just the neighborhoods that I either grew up in or frequently visited.
-        If you're interested in learning about other neighborhoods, rental rates, or would like to see Market Reports, please submit a request via my Contact Form or feel free to give me a call!
-
-
-
-      </div>
-      <!-- images go here -->
-      <div id='affiliate' class="col-sm-4">
-        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=8&l=ez&f=ifr&linkID=99cfd7fdab2bfb003249c925564f6484&t=prprealestate-20&tracking_id=prprealestate-20" width="120" height="240" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-        <br>
-        <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=11&l=ez&f=ifr&linkID=2cac3271e4a91a22f11f75fe454c0804&t=prprealestate-20&tracking_id=prprealestate-20" width="120" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-        <br>
-        <!-- <iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=9&l=ez&f=ifr&linkID=aa9082797e130645f57b546fd037da6c&t=prprealestate-20&tracking_id=prprealestate-20" width="180" height="150" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe> -->
-      </div>
-    </div>
-  </div>
   <script src = "{% static "rprealestate/js/master.js" %}"></script>
 {% endblock %}

@@ -6,50 +6,88 @@
   <head>
 
     <meta charset="utf-8">
+
     <title>PRP Real Estate</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <!-- my own css -->
     <link rel="stylesheet" href="{% static "rprealestate/css/master.css" %}" crossorigin="anonymous">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
 
     <style>
 
-      #container-one-footer {
-         background-color: #fffff;
-         font-family: 'Baloo Tamma 2', cursive;
-         width: 100%;
-         text-align: center;
-         height: 200px;
-         width: 100px;
-         margin: auto;
+    #container-one-footer {
+        font-family: 'Baloo Tamma 2', cursive;
+        width: 100%;
+        text-align: center;
+        height: 170px;
+        width: auto;
+        margin: auto;
+      }
+    #container-two-footer{
+        font-family: 'Baloo Tamma 2', cursive;
+        height: 170px;
+    }
+    #container-three-footer{
+        font-family: 'Baloo Tamma 2', cursive;
+        height: 170px;
+    }
+    #container-four-footer{
+        font-family: 'Baloo Tamma 2', cursive;
+        height: 170px;
+    }
+
+    #contact_form_nav{
+        font-family: 'Baloo Tamma 2', cursive;
+        font-size: 20px;
       }
 
-      #contact_form_nav{
+    #main-nav-link{
         font-family: 'Baloo Tamma 2', cursive;
         font-size: 20px;
+        color: white;
       }
 
-      #divider{
-        border-color: white;
-        border-radius: 1px;
-      }
-      #dropdownMenuButton{
-        font-family: 'Rubik', sans-serif;
-      }
-      #main_nav{
+    .navbar{
         font-family: 'Baloo Tamma 2', cursive;
         font-size: 20px;
+        opacity: .7;
       }
-      #nav-data{
+
+    #nav-link{
         font-family: 'Baloo Tamma 2', cursive;
         font-size: 20px;
+        color: white;
       }
-      #npp{
-        font-family: 'Baloo Tamma 2', cursive;
-        font-size: 20px;
+
+    #container-two{
+        text-align: left;
       }
+
+    #footer-div{
+      min-width: 800px;
+      width: 100%;
+      padding-top: 5px;
+    }
+    #main-footer{
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      opacity: .9;
+    }
+    #copyright{
+      font-family: 'Baloo Tamma 2', cursive;
+      font-size: 1.1rem;
+      text-align: center;
+      padding-bottom: 0px;
+      margin: 0px 0px 0px 0px;
+    }
 
     </style>
   </head>
@@ -63,22 +101,27 @@
        <!-- Google fonts -->
        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Rubik:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
        <!-- Bootstrap nav bar starts here -->
-       <nav class="navbar navbar-expand-sm navbar-light bg-light">
-         <a id='main_nav' class="navbar-brand" href="{% url 'index' %}">PRP RealEstate</a>
-
-         <div class="navbar-nav">
-           <a id='main_nav' class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-           <a id='contact_form_nav' class="nav-item nav-link" href="{% url "frontpage:contactform" %}">Contact Form</a>
+       <nav class='navbar navbar-expand-sm text-light bg-dark'>
+         <!-- BUTTON FOR WHEN COLLAPSED -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <!-- <a id='main-nav-link' class="navbar-brand" href="{% url 'index' %}">Best Choice Realty</a> -->
+         <!-- DIV CLASS STARTS HERE -->
+         <div class="collapse navbar-collapse" id='navbarTogglerDemo03'>
+           <ul class='navbar-nav ml-auto'>
+             <li class='nav-item active'>
+               <a id='nav-link' class="nav-link" href="{% url 'index' %}">Home</a>
+             </li>
+             <li class='nav-item'>
+               <a id='nav-link' class="nav-link" href="{% url "frontpage:contactform" %}">Contact Form</a>
+             </li>
+             <li class='nav-item'>
+               <a id='nav-link' class="nav-link" href="https://bestchoicerealtyhomes.com/">Best Choice Realty</a>
+             </li>
+           </ul>
          </div>
-
-         <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                  <a id='npp' class="nav-item nav-link" href="https://www.northpacificproperties.com/">North Pacific Properties</a>
-              </li>
-          </ul>
-         </div>
-       </nav>
+      </nav>
 
        <!--CHECK FOR JAVASCRIPT-->
       <noscript>
@@ -89,47 +132,44 @@
 
         {% endblock %}
 
-      <hr class="4" style="width: 75%;">
-      <footer id='main-footer'>
-        <div id='footer-div' class="row" style='width: 100%;'>
+      <footer id='main-footer' class='text-light bg-dark'>
+        <div id='footer-div' class="row">
           <!-- CONTACT INFORMATION -->
-          <div id='container-one-footer' class="col-sm-3" style="font-family: 'Baloo Tamma 2', cursive;">
-            North Pacific Properties
-            <br>
-              Seattle | 206.601.2325
-            <br>
-              2224 Queen Anne Ave N<p>Seattle, WA 98109
-            <br>
-            ruslan<br><b>@</b><br>northpacificproperties.com
+          <div id='container-one-footer' class="col-sm-3">
+            <h5><b>
+                Best Choice Realty
+            </b></h5>
+            <p>
+            Seattle, WA | <a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Me</a>
           </div>
-          <!-- MYFAVORITE NEIGHBORHOODS -->
-          <div id='container-two' class="col-sm-3" style="font-family: 'Baloo Tamma 2', cursive;">
-            <h5><b>My Favorite Neighborhoods</b></h5>
-            <a href="https://visitseattle.org/neighborhoods/ballard/" style="color:black;">Ballard</a>
-            <br><a href="https://visitseattle.org/neighborhoods/fremont/" style="color:black;">Fremont</a>
-            <br><a href="https://visitseattle.org/neighborhoods/queen-anne/" style="color:black;">Queen Anne</a>
-            <br><a href="https://visitseattle.org/neighborhoods/capitol-hill/" style="color:black;">Capitol Hill</a>
-            <br><a href="https://westseattleblog.com/" style="color:black;">West Seattle</a>
-            <p><a href="https://en.wikipedia.org/wiki/Greenwood,_Seattle" style="color:black">Greenwood</a>
-            <br>
+          <!-- MY AFFILIATES -->
+          <div id='container-two-footer' class="col-sm-3" style='color: white;'>
+            <h5><b>My Affiliates</b></h5>
+                Amazon:
+                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=3491d2a5cfb451292c19565d44e1bc0e&camp=1789&creative=9325&node=4619352011" style='color: white;'>Home and Garden</a>
+                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=c5494d62e306e9c899143cf3eaa30fcf&camp=1789&creative=9325&node=289668" style='color: white;'>Kitchen and Dining</a>
+                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=acf041087256bd02c1db55ae790eb052&camp=1789&creative=9325&node=16310101" style='color: white;'>Grocery and Gourmet Food</a>
+                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=54014d6f280f1b325738043c41e3ba26&camp=1789&creative=9325&node=283155" style='color: white;'>Books and Textbooks</a>
+                <a target="_blank" href="https://www.amazon.com/b?_encoding=UTF8&tag=prprealestate-20&linkCode=ur2&linkId=d6cff836556dd602b5bccc26e9c9ba66&camp=1789&creative=9325&node=3760901" style='color: white;'>Health and Household</a>
           </div>
           <!-- CONTACT FORM -->
-          <div id='container-three' class="col-sm-3 text-wrap" style="font-family: 'Baloo Tamma 2', cursive;">
-            <h5><b>Contact Me</b></h5>
-            <p>I would love to learn about you to see how I can help you in the Northwest real estate market.
-            <p>
-            <a href="{% url "frontpage:contactform" %}" class="badge badge-info">Contact Form</a>
+          <div id='container-three-footer' class="col-sm-3">
+            <h5>
+                <b>Contact</b>
+            </h5>
+            <a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Form</a>
           </div>
           <!-- QUICK LINKS -->
-          <div id='cotainer-four' class="col-sm-3" style="font-family: 'Baloo Tamma 2', cursive;">
+          <div id='container-four-footer' class="col-sm-3">
             <h5><b>Quick Links</b></h5>
-            <p><a href="{% url "frontpage:data" %}" style="color: black;">Market Reports</a>
-            <br><a href="{% url "frontpage:contactform" %}" style="color: black;">Contact Form</a>
-            <br><a href="https://www.northpacificproperties.com/" style="color: black;">North Pacific Properties</a>
-            <br><a href="https://www.nwmls.com/" style="color: black;">NWMLS</a>
-
+            <p><a href="{% url "frontpage:data" %}" style='color: white;'>Market Reports</a>
+            <br><a href="{% url "frontpage:contactform" %}" style='color: white;'>Contact Form</a>
+            <br><a href="https://www.northpacificproperties.com/" style='color: white;'>North Pacific Properties</a>
+            <br><a href="https://www.nwmls.com/" style='color: white;'>NWMLS</a>
           </div>
         </div>
+
+        <p class='copyright' id='copyright'><span class="glyphicon">©</span> Ruslan Polyak <b>@</b> PRP Real Estate </p>
       </footer>
   </body>
 </html>
