@@ -2,6 +2,8 @@
 .env
 *.env
 crime_key.txt
+*.sqlite3
+db.sqlite3
 
 # Python & Django Cache
 __pycache__/
