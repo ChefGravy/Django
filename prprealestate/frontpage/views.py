@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render
 from django.contrib import messages
-from django.http import JsonResponse
+from django.http import StreamingHttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView
@@ -44,6 +44,8 @@ def ai_assistant_api(request):
     if len(user_message) > 600:
         return JsonResponse({'error': 'Message too long (max 600 characters)'}, status=400)
 
+    wants_stream = data.get('stream', True)
+
     payload = {
         'model': 'qwen2.5:7b',
         'messages': [
@@ -51,32 +53,57 @@ def ai_assistant_api(request):
             {'role': 'user', 'content': user_message}
         ],
         'options': {
-            'num_predict': 180,
+            'num_predict': 220,
             'temperature': 0.7,
             'top_p': 0.9,
         },
-        'stream': False
+        'stream': True
     }
 
-    try:
-        req = urllib.request.Request(
-            'http://127.0.0.1:11434/api/chat',
-            data=json.dumps(payload).encode('utf-8'),
-            headers={'Content-Type': 'application/json'}
-        )
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            res_data = json.loads(resp.read().decode('utf-8'))
-            reply = res_data.get('message', {}).get('content', '')
-            if not reply:
-                reply = "I was unable to formulate a response. Please try asking again."
-            return JsonResponse({'reply': reply, 'model': 'qwen2.5:7b (7.6B)'})
-    except urllib.error.URLError as e:
-        return JsonResponse({
-            'reply': f"The local AI model is currently busy. Please retry in a few moments. ({getattr(e, 'reason', str(e))})",
-            'model': 'offline-fallback'
-        }, status=503)
-    except Exception as e:
-        return JsonResponse({'error': f'Inference error: {str(e)}'}, status=500)
+    if not wants_stream:
+        payload['stream'] = False
+        try:
+            req = urllib.request.Request(
+                'http://127.0.0.1:11434/api/chat',
+                data=json.dumps(payload).encode('utf-8'),
+                headers={'Content-Type': 'application/json'}
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                res_data = json.loads(resp.read().decode('utf-8'))
+                reply = res_data.get('message', {}).get('content', '')
+                return JsonResponse({'reply': reply, 'model': 'qwen2.5:7b'})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+    def stream_tokens():
+        try:
+            req = urllib.request.Request(
+                'http://127.0.0.1:11434/api/chat',
+                data=json.dumps(payload).encode('utf-8'),
+                headers={'Content-Type': 'application/json'}
+            )
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                for line in resp:
+                    if not line:
+                        continue
+                    try:
+                        chunk = json.loads(line.decode('utf-8'))
+                        token = chunk.get('message', {}).get('content', '')
+                        if token:
+                            yield token
+                        if chunk.get('done'):
+                            break
+                    except Exception:
+                        continue
+        except urllib.error.URLError as e:
+            yield f"\n[AI Assistant Notice: Local neural model is currently busy. Please retry shortly. ({getattr(e, 'reason', str(e))})]"
+        except Exception as e:
+            yield f"\n[Inference error: {str(e)}]"
+
+    response = StreamingHttpResponse(stream_tokens(), content_type='text/plain; charset=utf-8')
+    response['Cache-Control'] = 'no-cache, no-transform'
+    response['X-Accel-Buffering'] = 'no'
+    return response
 
 
 # Create your views here.

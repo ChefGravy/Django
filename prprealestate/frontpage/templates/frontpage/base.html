@@ -394,6 +394,19 @@
         opacity: 0.5;
         cursor: not-allowed;
       }
+
+      .prp-ai-cursor {
+        display: inline-block;
+        color: var(--prp-accent);
+        margin-left: 2px;
+        animation: prpBlink 0.8s infinite;
+        font-size: 0.85rem;
+        vertical-align: baseline;
+      }
+      @keyframes prpBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
     </style>
     {% block extra_head %}{% endblock %}
   </head>
@@ -576,6 +589,18 @@
         document.getElementById('ai-form').dispatchEvent(new Event('submit'));
       }
 
+      function formatAiMarkdown(text) {
+        if (!text) return '';
+        let formatted = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        formatted = formatted.replace(/^\s*[-*]\s+(.+)$/gm, '• $1');
+        formatted = formatted.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+        return formatted;
+      }
+
       async function handleAiSubmit(e) {
         e.preventDefault();
         const input = document.getElementById('ai-input');
@@ -595,11 +620,11 @@
         input.disabled = true;
         sendBtn.disabled = true;
 
-        // Append thinking placeholder bubble
-        const thinkingBubble = document.createElement('div');
-        thinkingBubble.className = 'prp-ai-bubble prp-ai-bubble-assistant';
-        thinkingBubble.innerHTML = '<em>Thinking with local 7.6B neural model...</em>';
-        msgContainer.appendChild(thinkingBubble);
+        // Append streaming assistant bubble with typing indicator
+        const assistantBubble = document.createElement('div');
+        assistantBubble.className = 'prp-ai-bubble prp-ai-bubble-assistant';
+        assistantBubble.innerHTML = '<span class="prp-ai-cursor">●</span>';
+        msgContainer.appendChild(assistantBubble);
         msgContainer.scrollTop = msgContainer.scrollHeight;
 
         try {
@@ -608,17 +633,35 @@
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: userMsg })
+            body: JSON.stringify({ message: userMsg, stream: true })
           });
 
-          const data = await res.json();
-          if (res.ok && data.reply) {
-            thinkingBubble.innerHTML = data.reply.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
-          } else {
-            thinkingBubble.innerHTML = `<span style="color: #f87171;">${data.error || data.reply || 'An error occurred while generating a response.'}</span>`;
+          if (!res.ok) {
+            assistantBubble.innerHTML = `<span style="color: #f87171;">Server error (${res.status}). Please try again.</span>`;
+            return;
           }
+
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder('utf-8');
+          let fullText = '';
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            const chunk = decoder.decode(value, { stream: true });
+            fullText += chunk;
+            // Update bubble in real-time as tokens stream in
+            assistantBubble.innerHTML = formatAiMarkdown(fullText) + '<span class="prp-ai-cursor">●</span>';
+            // Scroll down as new tokens arrive
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+          }
+
+          // Final update without cursor
+          assistantBubble.innerHTML = formatAiMarkdown(fullText);
+          msgContainer.scrollTop = msgContainer.scrollHeight;
+
         } catch (err) {
-          thinkingBubble.innerHTML = `<span style="color: #f87171;">Connection error: Unable to reach AI service. Please ensure connectivity.</span>`;
+          assistantBubble.innerHTML = `<span style="color: #f87171;">Connection error: Unable to stream response. Please try again.</span>`;
         } finally {
           input.disabled = false;
           sendBtn.disabled = false;
