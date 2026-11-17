@@ -135,81 +135,48 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
           
-          <!-- Monogram & Brand Crest with Prominent Standout License Badge -->
-          <div class="flex items-center gap-3 sm:gap-4 shrink-0">
-            <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none">
-              <div class="w-11 h-11 rounded-xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-xl font-bold tracking-tight shadow-md group-hover:bg-terracotta transition-colors duration-300">
-                PRP
-              </div>
-              <div class="flex flex-col">
-                <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-stone-900 leading-none group-hover:text-terracotta transition-colors">
-                  PRP Real Estate
-                </span>
-                <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-500 mt-1">
-                  Private Advisory · Seattle
-                </span>
-              </div>
-            </a>
-
-            <!-- Prominent Clickable WA License & Inactive Status Pill -->
-            <a 
-              href="https://professions.dol.wa.gov/s/license-lookup" 
-              target="_blank" 
-              rel="noopener" 
-              class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50/90 text-amber-900 border border-amber-300/90 hover:bg-amber-100 hover:border-amber-400 hover:text-amber-950 transition-all shadow-xs group"
-              title="Verify Washington Department of Licensing record (License #117618 · Status: Inactive / Non-Practicing)"
-            >
-              <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span class="font-bold tracking-tight">Lic #117618</span>
-              <span class="px-1.5 py-0.5 rounded-md bg-amber-200/90 text-[10px] font-extrabold text-amber-950 uppercase tracking-wider">Inactive</span>
-              <span class="text-amber-700 text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
-            </a>
-          </div>
-
-          <!-- Desktop Navigation & Action Controls (Evenly Spaced) -->
-          <div class="hidden lg:flex items-center gap-6 xl:gap-8">
-            <!-- Navigation Links with Uniform Pill Touch Targets -->
-            <nav class="flex items-center gap-1 xl:gap-2 text-sm font-medium text-stone-600">
-              <a href="{% url 'index' %}#neighborhoods" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">Neighborhoods</a>
-              <a href="{% url 'index' %}#market-pulse" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Pulse</a>
-              <a href="{% url 'index' %}#fiduciary-pillars" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Fiduciary Tenets</a>
-              <a href="{% url 'frontpage:about' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">About</a>
-              <a href="{% url 'frontpage:data' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Data</a>
-              <a href="{% url 'frontpage:blog' %}" class="px-3 py-1.5 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors">Journal</a>
-            </nav>
-
-            <!-- Refined Vertical Divider separating Nav Links from Actions -->
-            <div class="h-6 w-px bg-stone-300/80"></div>
-
-            <!-- Action CTAs -->
-            <div class="flex items-center gap-3">
-              <!-- AI Concierge Trigger -->
-              <button onclick="openAiAssistant()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-stone-100 text-stone-800 border border-stone-300 hover:bg-stone-200/80 hover:border-stone-400 transition-all duration-200 shadow-xs whitespace-nowrap">
-                <span class="text-terracotta text-sm">✦</span>
-                <span>AI Concierge</span>
-              </button>
-
-              <!-- Private Consultation CTA -->
-              <a href="{% url 'frontpage:contactform' %}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-obsidian text-stone-100 hover:bg-terracotta transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap">
-                <span>Consultation</span>
-                <span class="text-xs">➔</span>
-              </a>
+          <!-- Left: Monogram & Brand Crest -->
+          <a href="{% url 'index' %}" class="group flex items-center gap-3.5 focus:outline-none shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-obsidian text-stone-100 flex items-center justify-center font-serif text-xl font-bold tracking-tight shadow-md group-hover:bg-terracotta transition-colors duration-300">
+              PRP
             </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-stone-900 leading-none group-hover:text-terracotta transition-colors">
+                PRP Real Estate
+              </span>
+              <span class="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-500 mt-1">
+                Private Advisory · Seattle
+              </span>
+            </div>
+          </a>
+
+          <!-- Center: Desktop Navigation Links (Evenly Spaced) -->
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-sm font-medium text-stone-600">
+            <a href="{% url 'index' %}#neighborhoods" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Neighborhoods</a>
+            <a href="{% url 'index' %}#market-pulse" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Pulse</a>
+            <a href="{% url 'index' %}#fiduciary-pillars" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Fiduciary Tenets</a>
+            <a href="{% url 'frontpage:about' %}" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">About</a>
+            <a href="{% url 'frontpage:data' %}" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Market Data</a>
+            <a href="{% url 'frontpage:blog' %}" class="px-3.5 py-2 rounded-full hover:text-stone-950 hover:bg-stone-200/50 transition-colors whitespace-nowrap">Journal</a>
+          </nav>
+
+          <!-- Right: Action CTAs -->
+          <div class="hidden lg:flex items-center gap-3 shrink-0">
+            <!-- AI Concierge Trigger -->
+            <button onclick="openAiAssistant()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-stone-100 text-stone-800 border border-stone-300 hover:bg-stone-200/80 hover:border-stone-400 transition-all duration-200 shadow-xs whitespace-nowrap">
+              <span class="text-terracotta text-sm">✦</span>
+              <span>AI Concierge</span>
+            </button>
+
+            <!-- Private Consultation CTA -->
+            <a href="{% url 'frontpage:contactform' %}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-obsidian text-stone-100 hover:bg-terracotta transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap">
+              <span>Consultation</span>
+              <span class="text-xs">➔</span>
+            </a>
           </div>
 
-          <!-- Mobile Hamburger & Mobile License Pill -->
+          <!-- Mobile Controls -->
           <div class="flex items-center gap-2 lg:hidden">
-            <a 
-              href="https://professions.dol.wa.gov/s/license-lookup" 
-              target="_blank" 
-              rel="noopener" 
-              class="sm:hidden px-2 py-1 rounded-full text-[10px] font-bold bg-amber-50 text-amber-900 border border-amber-300 flex items-center gap-1"
-              title="WA License #117618 (Inactive)"
-            >
-              <span>#117618</span>
-              <span class="text-[9px] uppercase font-bold text-amber-700">(Inactive)</span>
-              <span>↗</span>
-            </a>
             <button onclick="openAiAssistant()" class="p-2 rounded-lg bg-stone-100 text-stone-800 text-xs font-semibold flex items-center gap-1">
               <span class="text-terracotta">✦</span> AI
             </button>
