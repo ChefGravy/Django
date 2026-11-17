@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage.as_view(), name='index'),
     path('api/assistant/', frontpage_views.ai_assistant_api, name='api_assistant'),
+    path('api/telemetry/', frontpage_views.telemetry_api, name='api_telemetry'),
     path('frontpage/', include('frontpage.urls')),
 ]

@@ -29,4 +29,5 @@ urlpatterns = [
     path('blog/', views.BlogView.as_view(), name='blog'),
     path('data/', views.DataView.as_view(), name='data'),
     path('api/assistant/', views.ai_assistant_api, name='ai_assistant_api'),
+    path('api/telemetry/', views.telemetry_api, name='api_telemetry'),
 ]

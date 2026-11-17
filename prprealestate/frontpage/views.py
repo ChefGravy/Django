@@ -106,11 +106,87 @@ def ai_assistant_api(request):
     return response
 
 
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        return x_forwarded_for.split(',')[0].strip()
+    return request.META.get('REMOTE_ADDR', '')
+
+def relay_telemetry_event(payload):
+    """Safely relays telemetry to portfolio-backend over loopback without blocking the user."""
+    try:
+        data = json.dumps(payload).encode('utf-8')
+        req = urllib.request.Request(
+            'http://127.0.0.1:5100/api/activity/track',
+            data=data,
+            headers={'Content-Type': 'application/json'}
+        )
+        urllib.request.urlopen(req, timeout=3)
+    except Exception:
+        pass
+
+@csrf_exempt
+@require_POST
+def telemetry_api(request):
+    try:
+        payload = json.loads(request.body.decode('utf-8'))
+    except Exception:
+        return JsonResponse({'status': 'invalid json'}, status=400)
+
+    ip_addr = get_client_ip(request)
+    ua = request.META.get('HTTP_USER_AGENT', '')
+
+    metadata = payload.get('metadata') or {}
+    metadata['site'] = 'PRP Real Estate'
+    if 'referrer' in payload:
+        metadata['referrer'] = payload['referrer']
+
+    if request.user and request.user.is_authenticated:
+        metadata['isMember'] = True
+        metadata['memberName'] = getattr(request.user, 'username', 'Staff Member')
+        metadata['memberRole'] = 'Admin / Staff' if request.user.is_staff else 'Member'
+    else:
+        metadata['isMember'] = False
+
+    telemetry_data = {
+        'sessionId': payload.get('sessionId'),
+        'activityType': payload.get('activityType', 'page_view'),
+        'pageUrl': payload.get('pageUrl'),
+        'pagePath': payload.get('pagePath', request.path),
+        'pageTitle': payload.get('pageTitle'),
+        'durationSeconds': payload.get('durationSeconds'),
+        'clickTarget': payload.get('clickTarget'),
+        'clickText': payload.get('clickText'),
+        'clickPosition': payload.get('clickPosition'),
+        'ipAddress': ip_addr,
+        'userAgent': ua,
+        'metadata': metadata
+    }
+
+    relay_telemetry_event(telemetry_data)
+    return JsonResponse({'status': 'recorded'}, status=200)
+
 # Create your views here.
 def contact(request):
         if request.method == 'POST':
             # Honeypot check — bots fill this hidden field, humans don't
             if request.POST.get('website', ''):
+                ip_addr = get_client_ip(request)
+                ua = request.META.get('HTTP_USER_AGENT', '')
+                relay_telemetry_event({
+                    'sessionId': request.session.session_key or 'bot-honeypot',
+                    'activityType': 'honeypot',
+                    'pageUrl': request.build_absolute_uri(),
+                    'pagePath': request.path,
+                    'pageTitle': 'Contact Form',
+                    'ipAddress': ip_addr,
+                    'userAgent': ua,
+                    'metadata': {
+                        'site': 'PRP Real Estate',
+                        'isHoneypot': True,
+                        'trigger': 'contactform_website_field'
+                    }
+                })
                 return render(request, 'frontpage/contactform.html', {'form': ContactForm()})
 
             form = ContactForm(request.POST)

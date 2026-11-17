@@ -532,6 +532,89 @@
       }
     </script>
 
+    <!-- Real-time Telemetry & Engagement Tracking -->
+    <script>
+      (function() {
+        const TELEMETRY_URL = '/api/telemetry/';
+        let sid = sessionStorage.getItem('prp_sid');
+        if (!sid) {
+          sid = 'prp_' + Math.random().toString(36).substring(2, 12) + Date.now().toString(36);
+          sessionStorage.setItem('prp_sid', sid);
+        }
+
+        const pagePath = window.location.pathname;
+        const pageTitle = document.title;
+        let pageStartTime = Date.now();
+
+        function sendTelemetry(payload, useBeacon = false) {
+          const body = JSON.stringify(Object.assign({
+            sessionId: sid,
+            pageUrl: window.location.href,
+            pagePath: pagePath,
+            pageTitle: pageTitle,
+            referrer: document.referrer || ''
+          }, payload));
+
+          if (useBeacon && navigator.sendBeacon) {
+            const blob = new Blob([body], { type: 'application/json' });
+            navigator.sendBeacon(TELEMETRY_URL, blob);
+          } else {
+            fetch(TELEMETRY_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: body,
+              keepalive: true
+            }).catch(function() {});
+          }
+        }
+
+        // 1. Initial Page View
+        sendTelemetry({ activityType: 'page_view' });
+
+        // 2. Click tracking for buttons, links, prompt chips, navigation
+        document.addEventListener('click', function(e) {
+          const clickable = e.target.closest('a, button, [role="button"], [data-chip], input[type="submit"]');
+          if (!clickable) return;
+
+          let text = (clickable.innerText || clickable.getAttribute('aria-label') || clickable.title || clickable.value || '').trim();
+          text = text.replace(/\s+/g, ' ');
+          if (!text || text.length < 2) return;
+          if (text.length > 80) text = text.substring(0, 80) + '...';
+
+          const target = clickable.getAttribute('href') || clickable.getAttribute('id') || clickable.className || 'element';
+
+          sendTelemetry({
+            activityType: 'click',
+            clickText: text,
+            clickTarget: target
+          });
+        }, { capture: true });
+
+        // 3. Dwell time tracking on tab switch or unload
+        function recordDwell() {
+          const duration = Math.round((Date.now() - pageStartTime) / 1000);
+          if (duration >= 15) {
+            sendTelemetry({
+              activityType: 'time_on_page',
+              durationSeconds: duration
+            }, true);
+            pageStartTime = Date.now();
+          }
+        }
+
+        document.addEventListener('visibilitychange', function() {
+          if (document.visibilityState === 'hidden') {
+            recordDwell();
+          } else {
+            pageStartTime = Date.now();
+          }
+        });
+
+        window.addEventListener('pagehide', recordDwell);
+        window.addEventListener('beforeunload', recordDwell);
+      })();
+    </script>
+
     {% block extra_scripts %}{% endblock %}
   </body>
 </html>
